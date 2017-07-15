@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for keystone/lib/schemaPlugins/track.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">keystone/lib/schemaPlugins/</a> track.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>48/50</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.2% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>46/51</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>48/50</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">31×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">31×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">31×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var _ = require('lodash');
+var keystone = require('../../');
+var Types = require('../fieldTypes');
+&nbsp;
+/**
+ * List track option
+ *
+ * When enabled, it tracks when a document are created/updated,
+ * as well as the user who created/updated it.
+ */
+&nbsp;
+module.exports = function track () {
+&nbsp;
+	var list = this;
+	var options = list.get('track');
+	var userModel = keystone.get('user model');
+	var defaultOptions = {
+		createdAt: false,
+		createdBy: false,
+		updatedAt: false,
+		updatedBy: false,
+	};
+	var fields = {};
+&nbsp;
+	// ensure track is a boolean or an object
+	if (!_.isBoolean(options) &amp;&amp; !_.isObject(options)) {
+		throw new Error('Invalid List "track" option for ' + list.key + '\n'
+			+ '"track" must be a boolean or an object.\n\n'
+			+ 'See http://keystonejs.com/docs/database/#lists-options for more information.');
+	}
+&nbsp;
+	if (_.isBoolean(options)) {
+		// shorthand: { track: true } sets all tracked fields to true
+		<span class="missing-if-branch" title="else path not taken" >E</span>if (options) {
+			options = {
+				createdAt: true,
+				createdBy: true,
+				updatedAt: true,
+				updatedBy: true,
+			};
+		} else {
+			// otherwise user doesn't want tracking
+<span class="cstat-no" title="statement not covered" >			return;</span>
+		}
+	}
+&nbsp;
+	// if all track fields are set to false, then user doesn't want to track anything
+	if (!options.createdAt &amp;&amp; !options.createdBy &amp;&amp; !options.updatedAt &amp;&amp; !options.updatedBy) {
+		return;
+	}
+&nbsp;
+	// merge user options with default options
+	options = _.extend({}, defaultOptions, options);
+&nbsp;
+	// validate option fields
+	_.forEach(options, function (value, key) {
+&nbsp;
+		var fieldName;
+&nbsp;
+		// make sure the key isn't already defined as a field
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (_.has(list.fields, key)) {
+<span class="cstat-no" title="statement not covered" >			throw new Error('Invalid List "track" option for ' + list.key + '\n'</span>
+				+ '"' + key + '" is already defined in the Schema.');
+		}
+&nbsp;
+		// make sure it's a valid track option field
+		if (_.has(defaultOptions, key)) {
+&nbsp;
+			// make sure the option field value is either a boolean or a string
+			if (!_.isBoolean(value) &amp;&amp; !_.isString(value)) {
+				throw new Error('Invalid List "track" option for ' + list.key + '\n'
+					+ '"' + key + '" must be a boolean or a string.\n\n'
+					+ 'See http://keystonejs.com/docs/database/#lists-options for more information.');
+			}
+&nbsp;
+			if (value) {
+				// determine
+				fieldName = value === true ? key : value;
+				options[key] = fieldName;
+				list.map(key, fieldName);
+&nbsp;
+				switch (key) {
+					case 'createdAt':
+					case 'updatedAt':
+						fields[fieldName] = { type: Date, hidden: true, index: true };
+						break;
+&nbsp;
+					case 'createdBy':
+					case 'updatedBy':
+						fields[fieldName] = { type: Types.Relationship, ref: userModel, hidden: true, index: true };
+						break;
+				}
+			}
+		} else {
+			throw new Error('Invalid List "track" option for ' + list.key + '\n'
+				+ 'valid field options are "createdAt", "createdBy", "updatedAt", an "updatedBy".\n\n'
+				+ 'See http://keystonejs.com/docs/database/#lists-options for more information.');
+		}
+&nbsp;
+	});
+&nbsp;
+	// add track fields to schema
+	list.add(fields);
+&nbsp;
+	list.tracking = options;
+&nbsp;
+	// add the pre-save schema plugin
+	list.schema.pre('save', function (next) {
+&nbsp;
+		var now = new Date();
+&nbsp;
+		// set createdAt/createdBy on new docs
+		if (this.isNew) {
+			if (options.createdAt &amp;&amp; !this.get(options.createdAt)) {
+				this.set(options.createdAt, now);
+			}
+			if (options.createdBy &amp;&amp; this._req_user &amp;&amp; !this.get(options.createdBy)) {
+				this.set(options.createdBy, this._req_user._id);
+			}
+		}
+&nbsp;
+		// set updatedAt/updatedBy when doc is modified
+		<span class="missing-if-branch" title="else path not taken" >E</span>if (this.isNew || this.isModified()) {
+			<span class="missing-if-branch" title="else path not taken" >E</span>if (options.updatedAt) {
+				this.set(options.updatedAt, now);
+			}
+			<span class="missing-if-branch" title="else path not taken" >E</span>if (options.updatedBy &amp;&amp; this._req_user) {
+				this.set(options.updatedBy, this._req_user._id);
+			}
+		}
+&nbsp;
+		next();
+&nbsp;
+	});
+&nbsp;
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 24 2016 20:05:17 GMT+1100 (AEDT)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

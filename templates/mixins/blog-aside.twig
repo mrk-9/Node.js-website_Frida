@@ -1,0 +1,86 @@
+<div class="col-md-4 col-sm-12 fw-sidebar" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+		<div class="fw-col-inner">
+				<aside id="search-2" class="widget widget_search">
+						<form role="search" method="get" action="/blog" class="search-form">
+								<label>
+										<span class="screen-reader-text">Search for:</span>
+										<input type="search" class="search-field" placeholder="Search &hellip;" value="{{data.searchTerm|striptags}}" name="search" />
+								</label>
+								<input type="submit" class="search-submit" value="Search" />
+						</form>
+				</aside>
+				{% if data.recentPosts.total > 0 %}
+				<aside id="fw_posts-2" class="widget fw-widget-posts widget_fw_posts">
+						<h2 class="widget-title"><span>Latest Posts</span></h2>
+						<ul class="fw-side-posts-list">
+								{% for post in data.recentPosts.results %}
+								<li>
+										<div class="fw-widget-post-image fw-block-image-parent fw-overlay-1 fw-image-frame">
+												<a href="/blog/post/{{ post.slug }}" class="fw-thumbnail-post-list fw-block-image-child fw-ratio-container fw-ratio-1">
+														<noscript><img itemprop="image" src="{{ post.image.secure_url }}" alt="blog-post-feature-1" data-maxdpr="1.7" class="attachment-post-thumbnail lazyload" />
+														</noscript><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sizes="auto" data-srcset="{{ post.image.secure_url }} 1920w" alt="blog-post-feature-1" data-maxdpr="1.7" class="attachment-post-thumbnail lazyload" />
+														<div class="fw-block-image-overlay">
+																<div class="fw-itable">
+																		<div class="fw-icell">
+																				<i class="fw-icon-link"></i>
+																		</div>
+																</div>
+														</div>
+												</a>
+										</div>
+
+										<div class="posts-content">
+												<a href="/blog/post/{{ post.slug }}" class="post-title">{{ post.title }}</a>
+												<span class="post-date">{{post._.publishedDate.format("MMMM Do, YYYY")}}</span>
+										</div>
+								</li>
+								{% endfor %}
+						</ul>
+				</aside>
+				{% endif %}
+				<aside id="categories-2" class="widget widget_categories">
+						<h2 class="widget-title"><span>Categories</span></h2>
+						<label class="screen-reader-text" for="cat">Categories</label>
+						<select name='cat' id='cat' class='postform'>
+								<option value="/blog">Select Category</option>
+								{% for cat in data.categories %}
+								<option value="/blog/{{ cat.key }}" {% if data.category and data.category.id == cat.id %}selected="selected"{% endif %}>{{ cat.name }}</option>
+								{% endfor %}
+						</select>
+				</aside>
+				<aside id="tag_cloud-2" class="widget widget_tag_cloud">
+						<h2 class="widget-title"><span>Tags</span></h2>
+						<div class="tagcloud">
+								{% for tag in data.tags %}
+								<a href='/blog?tag={{tag|url_encode}}' class='tag-link-17 tag-link-position-1' title='{{tag}}'>{{tag}}</a>
+								{% endfor %}
+						</div>
+				</aside>
+				<aside id="archives-2" class="widget widget_archive">
+						<h2 class="widget-title"><span>Archives</span></h2>
+						<ul>
+								{% for item in data.archives %}
+								<li><a href='/blog{{item.url}}'>{{item.title}}</a></li>
+								{% endfor %}
+						</ul>
+				</aside>
+				<aside id="text-5" class="widget widget_text">
+						<h2 class="widget-title"><span>About</span></h2>
+						<div class="textwidget">
+								<p>Sed molestie augue sit amet leo consequat posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin vel ante a orci tempus eleifend ut et magna.
+										<br /> &nbsp;
+										<br />
+										<a href="#" style="float:left; margin-right:10px;"><img src="/img/wp/facebook.png">
+										</a>
+										<a href="#" style="float:left; margin-right:10px;"><img src="/img/wp/twitter-widget-icon.png">
+										</a>
+										<a href="#" style="float:left; margin-right:10px;"><img src="/img/wp/pinterest.png">
+										</a>
+										<a href="#" style="float:left; margin-right:10px;"><img src="/img/wp/instagram.png">
+										</a>
+								</p>
+						</div>
+				</aside>
+		</div>
+		<!-- /.inner -->
+</div>

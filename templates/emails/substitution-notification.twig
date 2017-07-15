@@ -1,0 +1,19 @@
+{% extends '../layouts/email-plain.twig' %}
+
+{% block content %}
+	Hi, {{name}}<br/><br/>
+	
+	The administrator has given you a pending volunteer assignment. the details of this arrangement are below. 
+	You may accept or decline this invitation by using the links at the bottom of this email.<br/><br/>
+	
+	<strong>Program:</strong> {{programName}}<br/>
+	<strong>Location:</strong> {{programLocation}}<br/>
+	<strong>Type:</strong> {{type}}<br/>
+	<strong>Date:</strong> {{date}}<br/><br/>
+	
+	<strong>What do you want to do?</strong><br/><br/>
+	
+	<a href="{{base_url}}/schedule/assignment?id={{substitution}}&action=accept&token={{token}}">ACCEPT</a> | <a href="{{base_url}}/schedule/assignment?id={{substitution}}&action=decline&token={{token}}">DECLINE</a>
+	
+	
+{% endblock %}

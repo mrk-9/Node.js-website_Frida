@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for keystone/admin/server/app/createStaticRouter.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">all files</a> / <a href="index.html">keystone/admin/server/app/</a> createStaticRouter.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">19.23% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>5/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">19.23% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>5/26</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * Returns an Express Router with bindings for the Admin UI static resources,
+ * i.e files, less and browserified scripts.
+ *
+ * Should be included before other middleware (e.g. session management,
+ * logging, etc) for reduced overhead.
+ */
+&nbsp;
+var browserify = require('../middleware/browserify');
+var express = require('express');
+var less = require('less-middleware');
+var path = require('path');
+&nbsp;
+module.exports = <span class="fstat-no" title="function not covered" >function createStaticRouter (keystone) {</span>
+<span class="cstat-no" title="statement not covered" >	var router = express.Router();</span>
+&nbsp;
+	/* Prepare browserify bundles */
+<span class="cstat-no" title="statement not covered" >	var bundles = {</span>
+		fields: browserify('fields.js', 'FieldTypes'),
+		signin: browserify('views/signin.js'),
+		home: browserify('views/home.js'),
+		item: browserify('views/item.js'),
+		list: browserify('views/list.js'),
+	};
+&nbsp;
+	// prebuild static resources on the next tick
+	// improves first-request performance
+<span class="cstat-no" title="statement not covered" >	process.nextTick(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >		bundles.fields.build();</span>
+<span class="cstat-no" title="statement not covered" >		bundles.signin.build();</span>
+<span class="cstat-no" title="statement not covered" >		bundles.home.build();</span>
+<span class="cstat-no" title="statement not covered" >		bundles.item.build();</span>
+<span class="cstat-no" title="statement not covered" >		bundles.list.build();</span>
+	});
+&nbsp;
+	/* Prepare LESS options */
+<span class="cstat-no" title="statement not covered" >	var elementalPath = path.join(path.dirname(require.resolve('elemental')), '..');</span>
+<span class="cstat-no" title="statement not covered" >	var reactSelectPath = path.join(path.dirname(require.resolve('react-select')), '..');</span>
+<span class="cstat-no" title="statement not covered" >	var customStylesPath = keystone.getPath('adminui custom styles', 'customStyles/index.less');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	var lessOptions = {</span>
+		render: {
+			modifyVars: {
+				elementalPath: JSON.stringify(elementalPath),
+				reactSelectPath: JSON.stringify(reactSelectPath),
+				customStylesPath: JSON.stringify(customStylesPath),
+				adminPath: JSON.stringify(keystone.get('admin path')),
+			},
+		},
+	};
+&nbsp;
+	/* Configure router */
+<span class="cstat-no" title="statement not covered" >	router.use('/styles', less(path.resolve(__dirname + '/../../public/styles'), lessOptions));</span>
+<span class="cstat-no" title="statement not covered" >	router.use('/styles/fonts', express.static(path.resolve(__dirname + '/../../public/js/lib/tinymce/skins/keystone/fonts')));</span>
+<span class="cstat-no" title="statement not covered" >	router.get('/js/fields.js', bundles.fields.serve);</span>
+<span class="cstat-no" title="statement not covered" >	router.get('/js/signin.js', bundles.signin.serve);</span>
+<span class="cstat-no" title="statement not covered" >	router.get('/js/home.js', bundles.home.serve);</span>
+<span class="cstat-no" title="statement not covered" >	router.get('/js/item.js', bundles.item.serve);</span>
+<span class="cstat-no" title="statement not covered" >	router.get('/js/list.js', bundles.list.serve);</span>
+<span class="cstat-no" title="statement not covered" >	router.use(express.static(path.resolve(__dirname + '/../../public')));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	return router;</span>
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 24 2016 20:05:17 GMT+1100 (AEDT)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends '../layouts/email-plain.twig' %}
+
+{% block content %}
+	Hi, {{name}}<br/><br/>
+	
+	The administrator has given you an assignment. the details of this arrangement are below. 
+	If you can't work on these days, you may request a substitute by logging into your account and visiting the scheduling tab.<br/><br/>
+	
+	<strong>Program:</strong> {{programName}}<br/>
+	<strong>Location:</strong> {{programLocation}}<br/>
+	<strong>Date:</strong> {% if type %}Every {{day}} {{time}}{%else%}{{date}} {{time}}{%endif%}<br/><br/>
+
+	
+	
+{% endblock %}

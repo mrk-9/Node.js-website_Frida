@@ -1,0 +1,16 @@
+.archive .fw-section-image .fw-special-title,
+.topic-tag .fw-section-image .fw-special-title {
+	font-family: Lato;
+	font-style: normal;
+	font-weight: 100;
+	line-height: 65px;
+	font-size: 52px;
+	letter-spacing: -1px;
+	color: #1b3039;
+}
+@media(max-width:767px) {
+	.archive .fw-section-image .fw-special-title {
+		font-size: 31px;
+		line-height: 39px;
+	}
+}

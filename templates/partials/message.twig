@@ -1,0 +1,25 @@
+{% for message in messages %}
+<div class="row" style="position: relative; padding: 25px 0 25px 15px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;" data-id="{{message._id}}">
+	<div class="col-xs-4 col-sm-3 col-md-2 text-center" style="padding: 0 !important;">
+		{% if message.user.role == 'Admin' %}
+		<img src="/img/admins.png" style="max-width:70%" />
+		<strong style="display: block;width: 100%;">
+			<span>Admin</span>
+		</strong>
+		{% else %}
+		<img src="{{message.user.image.secure_url}}" style="max-width:70%" /><br/>
+		<strong style="display: block;width: 100%;">
+		{% if message.user.name.last is not empty %}
+		<span>{{ message.user.name.first  ~ ' ' ~ message.user.name.last }}</span>
+		{% else %}
+		<span>{{ message.user.name.first}}</span>
+		{% endif %}
+		</strong>
+		{% endif %}
+	</div>
+	<div class="col-xs-8 col-sm-9 col-md-10">
+		{{ message.content.extended }}
+	</div>
+	<small style="position: absolute; bottom: 8px; right: 12px;">{{message.timestamp}}</small>
+</div>
+{% endfor %}

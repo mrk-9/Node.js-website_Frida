@@ -1,0 +1,983 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for keystone/lib/updateHandler.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">keystone/lib/</a> updateHandler.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>65/130</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">32.79% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>40/122</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50.78% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>65/128</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var _ = require('lodash');
+var keystone = require('../');
+var async = require('async');
+var evalDependsOn = require('../fields/utils/evalDependsOn.js');
+var debug = require('debug')('keystone:lib:updateHandler');
+/**
+ * UpdateHandler Class
+ *
+ * @param {Object} item to update
+ * @api public
+ */
+&nbsp;
+function UpdateHandler (list, item, req, res, options) {
+&nbsp;
+	<span class="missing-if-branch" title="if path not taken" >I</span>if (!(this instanceof UpdateHandler)) {
+<span class="cstat-no" title="statement not covered" >		return new UpdateHandler(list, item);</span>
+	}
+&nbsp;
+	this.list = list;
+	this.item = item;
+	this.req = req;
+	this.res = res;
+	this.user = req.user;
+	this.options = options || {};
+&nbsp;
+	<span class="missing-if-branch" title="else path not taken" >E</span>if (!this.options.errorMessage) {
+		this.options.errorMessage = 'There was a problem saving your changes:';
+	}
+&nbsp;
+	<span class="missing-if-branch" title="if path not taken" >I</span>if (this.options.user) {
+<span class="cstat-no" title="statement not covered" >		this.user = this.options.user;</span>
+	}
+&nbsp;
+	this.validationMethods = {};
+	this.validationErrors = {};
+&nbsp;
+}
+&nbsp;
+&nbsp;
+/**
+ * Adds a custom validation method for a given path
+ *
+ * @param {string} path to call method for
+ * @param {function} method to call
+ * @api public
+ */
+&nbsp;
+UpdateHandler.prototype.validate = <span class="fstat-no" title="function not covered" >function (path, fn) {</span>
+<span class="cstat-no" title="statement not covered" >	this.validationMethods[path] = fn;</span>
+<span class="cstat-no" title="statement not covered" >	return this;</span>
+};
+&nbsp;
+&nbsp;
+/**
+ * Adds a validationError to the updateHandler; can be used before
+ * `.process()` is called to handle errors generated by custom pre-
+ * processing.
+ *
+ * @param {string} path that failed validation
+ * @param {string} message to display
+ * @param {string} error type (defaults to 'required')
+ * @api public
+ */
+&nbsp;
+UpdateHandler.prototype.addValidationError = <span class="fstat-no" title="function not covered" >function (path, msg, type) {</span>
+<span class="cstat-no" title="statement not covered" >	this.validationErrors[path] = {</span>
+		name: 'ValidatorError',
+		path: path,
+		message: msg,
+		type: type || 'required',
+	};
+<span class="cstat-no" title="statement not covered" >	return this;</span>
+};
+&nbsp;
+&nbsp;
+/**
+ * Processes data from req.body, req.query, or any data source.
+ *
+ * Options:
+ * - fields (comma-delimited list or array of field paths)
+ * - flashErrors (boolean, default false; whether to push validation errors to req.flash)
+ * - ignoreNoedit (boolean, default false; whether to ignore noedit settings on fields)
+ * - validationErrors (object; validation errors from previous form handling that should be included)
+ *
+ * @param {Object} data
+ * @param {Object} options (can be comma-delimited list of fields) (optional)
+ * @param {Function} callback (optional)
+ * @api public
+ */
+&nbsp;
+UpdateHandler.prototype.process = function (data, options, callback) {
+&nbsp;
+	var usingDefaultFields = false;
+&nbsp;
+	<span class="missing-if-branch" title="else path not taken" >E</span>if (typeof options === 'function') {
+		callback = options;
+		options = null;
+	}
+&nbsp;
+	<span class="missing-if-branch" title="if path not taken" >I</span>if (typeof callback !== 'function') {
+<span class="cstat-no" title="statement not covered" >		callback = <span class="fstat-no" title="function not covered" >function () {</span>};</span>
+	}
+&nbsp;
+	// Initialise options
+&nbsp;
+	<span class="missing-if-branch" title="else path not taken" >E</span>if (!options) {
+		options = {};
+	} else <span class="cstat-no" title="statement not covered" >if (typeof options === 'string') {</span>
+<span class="cstat-no" title="statement not covered" >		options = { fields: options };</span>
+	}
+&nbsp;
+	<span class="missing-if-branch" title="else path not taken" >E</span>if (!options.fields) {
+		options.fields = _.keys(this.list.fields);
+		usingDefaultFields = true;
+	} else <span class="cstat-no" title="statement not covered" >if (typeof options.fields === 'string') {</span>
+<span class="cstat-no" title="statement not covered" >		options.fields = options.fields.split(',').map(<span class="fstat-no" title="function not covered" >function (i) {</span> <span class="cstat-no" title="statement not covered" >return i.trim(); </span>});</span>
+	}
+&nbsp;
+	options.required = options.required || {};
+	options.errorMessage = options.errorMessage || this.options.errorMessage;
+	options.invalidMessages = options.invalidMessages || {};
+	options.requiredMessages = options.requiredMessages || {};
+&nbsp;
+	// Parse a string of required fields into field paths
+	<span class="missing-if-branch" title="if path not taken" >I</span>if (typeof options.required === 'string') {
+<span class="cstat-no" title="statement not covered" >		var requiredFields = options.required.split(',').map(<span class="fstat-no" title="function not covered" >function (i) {</span> <span class="cstat-no" title="statement not covered" >return i.trim(); </span>});</span>
+<span class="cstat-no" title="statement not covered" >		options.required = {};</span>
+<span class="cstat-no" title="statement not covered" >		requiredFields.forEach(<span class="fstat-no" title="function not covered" >function (path) {</span></span>
+<span class="cstat-no" title="statement not covered" >			options.required[path] = true;</span>
+		});
+	}
+&nbsp;
+	// Make sure fields with the required option set are included in the required paths
+	options.fields.forEach(function (path) {
+		var field = (path instanceof keystone.Field) ? <span class="branch-0 cbranch-no" title="branch not covered" >path </span>: this.list.field(path);
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (field &amp;&amp; field.required) {
+<span class="cstat-no" title="statement not covered" >			options.required[field.path] = true;</span>
+		}
+	}, this);
+&nbsp;
+	// TODO: The whole progress queue management code could be a lot neater...
+	var actionQueue = [];
+	var addValidationError = this.addValidationError.bind(this);
+	var validationErrors = this.validationErrors;
+&nbsp;
+	var progress = function (err) {
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >			if (options.logErrors) {</span>
+<span class="cstat-no" title="statement not covered" >				console.log('Error saving changes to ' + this.item.list.singular + ' ' + this.item.id + ':');</span>
+<span class="cstat-no" title="statement not covered" >				console.log(err);</span>
+			}
+<span class="cstat-no" title="statement not covered" >			callback(err, this.item, this);</span>
+		} else <span class="missing-if-branch" title="if path not taken" >I</span>if (_.size(validationErrors)) {
+<span class="cstat-no" title="statement not covered" >			if (options.flashErrors) {</span>
+<span class="cstat-no" title="statement not covered" >				this.req.flash('error', {</span>
+					type: 'ValidationError',
+					title: options.errorMessage,
+					list: _.map(validationErrors, 'message'),
+				});
+			}
+<span class="cstat-no" title="statement not covered" >			callback({</span>
+				message: 'Validation failed',
+				name: 'ValidationError',
+				errors: validationErrors,
+			}, this.item, this);
+		} else <span class="missing-if-branch" title="if path not taken" >I</span>if (actionQueue.length) {
+			// TODO: parallel queue handling for cloudinary uploads?
+<span class="cstat-no" title="statement not covered" >			actionQueue.pop()();</span>
+		} else {
+			saveItem();
+		}
+	}.bind(this);
+&nbsp;
+	var saveItem = function () {
+&nbsp;
+		// Make current user available to pre/post save events
+		this.item._req_user = this.user;
+&nbsp;
+		this.item.save(function (err) {
+			<span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >				if (err.name === 'ValidationError') {</span>
+					// don't log simple validation errors
+<span class="cstat-no" title="statement not covered" >					if (options.flashErrors) {</span>
+<span class="cstat-no" title="statement not covered" >						this.req.flash('error', {</span>
+							type: 'ValidationError',
+							title: options.errorMessage,
+							list: _.map(err.errors, 'message'),
+						});
+					}
+				} else {
+<span class="cstat-no" title="statement not covered" >					if (options.logErrors) {</span>
+<span class="cstat-no" title="statement not covered" >						console.log('Error saving changes to ' + this.item.list.singular + ' ' + this.item.id + ':');</span>
+<span class="cstat-no" title="statement not covered" >						console.log(err);</span>
+					}
+<span class="cstat-no" title="statement not covered" >					if (options.flashErrors) {</span>
+<span class="cstat-no" title="statement not covered" >						this.req.flash('error', 'There was an error saving your changes: ' + err.message + ' (' + err.name + (err.type ? ': ' + err.type : '') + ')');</span>
+					}
+				}
+			}
+			return callback(err, this.item, this);
+		}.bind(this));
+	}.bind(this);
+&nbsp;
+	async.forEach(options.fields, function (path, callback) {
+&nbsp;
+		// console.log('Processing field ' + path);
+		var message;
+&nbsp;
+		var field = (path instanceof keystone.Field) ? <span class="branch-0 cbranch-no" title="branch not covered" >path </span>: this.list.field(path);
+		var invalidated = false;
+&nbsp;
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (!field) {
+<span class="cstat-no" title="statement not covered" >			throw new Error('UpdateHandler.process called with invalid field path: ' + path);</span>
+		}
+&nbsp;
+		// skip uneditable fields
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (usingDefaultFields &amp;&amp; field.noedit &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >!options.ignoreNoedit)</span> {
+			// console.log('Skipping field ' + path + ' (noedit: true)');
+<span class="cstat-no" title="statement not covered" >			return callback();</span>
+		}
+&nbsp;
+		// Some field types have custom behaviours for queueing or validation
+		switch (field.type) {
+&nbsp;
+			case 'localfile':
+			case 'localfiles':
+			case 'cloudinaryimage':
+			case 'cloudinaryimages':
+			case 'azurefile':
+			case 's3file':
+<span class="cstat-no" title="statement not covered" >				actionQueue.push(field.getRequestHandler(this.item, this.req, options.paths, <span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >					if (err &amp;&amp; options.flashErrors) {</span>
+<span class="cstat-no" title="statement not covered" >						this.req.flash('error', field.label + ' upload failed - ' + err.message);</span>
+					}
+<span class="cstat-no" title="statement not covered" >					progress(err);</span>
+				}.bind(this)));
+<span class="cstat-no" title="statement not covered" >				break;</span>
+&nbsp;
+			case 'location':
+<span class="cstat-no" title="statement not covered" >				actionQueue.push(field.getRequestHandler(this.item, this.req, options.paths, <span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >					if (err &amp;&amp; options.flashErrors) {</span>
+<span class="cstat-no" title="statement not covered" >						this.req.flash('error', field.label + ' improve failed - ' + (err.status_text || err.status));</span>
+					}
+<span class="cstat-no" title="statement not covered" >					progress(err);</span>
+				}.bind(this)));
+<span class="cstat-no" title="statement not covered" >				break;</span>
+&nbsp;
+			case 'password':
+				// passwords should only be set if a value is provided.
+				// if no value is provided, as long as the field isn't required or empty, bail.
+<span class="cstat-no" title="statement not covered" >				if (!data[field.path] &amp;&amp; (!options.required[field.path] || this.item.get(field.path))) {</span>
+<span class="cstat-no" title="statement not covered" >					return callback();</span>
+				}
+				// validate the password fields match, with a custom error message.
+<span class="cstat-no" title="statement not covered" >				if (data[field.path] !== data[field.paths.confirm]) {</span>
+<span class="cstat-no" title="statement not covered" >					message = options.invalidMessages[field.path + '_match'] || 'Passwords must match';</span>
+<span class="cstat-no" title="statement not covered" >					addValidationError(field.path, message);</span>
+<span class="cstat-no" title="statement not covered" >					invalidated = true;</span>
+				}
+<span class="cstat-no" title="statement not covered" >				break;</span>
+&nbsp;
+		}
+&nbsp;
+		// validate field input, unless it's already been invalidated by field-specific behaviour
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (!invalidated &amp;&amp; !field.inputIsValid(data)) {
+			// console.log('Field ' + field.path + ' is invalid');
+<span class="cstat-no" title="statement not covered" >			message = options.invalidMessages[field.path] || field.options.invalidMessage || 'Please enter a valid ' + field.typeDescription + ' in the ' + field.label + ' field';</span>
+<span class="cstat-no" title="statement not covered" >			addValidationError(field.path, message);</span>
+<span class="cstat-no" title="statement not covered" >			invalidated = true;</span>
+		}
+&nbsp;
+		// validate required fields, unless they've already been invalidated by field-specific behaviour
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (!invalidated &amp;&amp; options.required[field.path] &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >!field.inputIsValid(data, true, this.item) </span>&amp;&amp; <span class="branch-3 cbranch-no" title="branch not covered" >!validationErrors[field.path])</span> {
+			// console.log('Field ' + field.path + ' is required, but not provided.');
+<span class="cstat-no" title="statement not covered" >			if (!field.dependsOn || evalDependsOn(field.dependsOn, data)) {</span>
+<span class="cstat-no" title="statement not covered" >				debug('validate dependsOn required', field.dependsOn);</span>
+				// field is required only if dependsOn is true
+<span class="cstat-no" title="statement not covered" >				message = options.requiredMessages[field.path] || field.options.requiredMessage || field.label + ' is required';</span>
+<span class="cstat-no" title="statement not covered" >				addValidationError(field.path, message);</span>
+<span class="cstat-no" title="statement not covered" >				invalidated = true;</span>
+			}
+&nbsp;
+		}
+&nbsp;
+		// check for a custom validation rule at the path, and run it (unless the field is already invalid)
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (!invalidated &amp;&amp; this.validationMethods[field.path]) {
+<span class="cstat-no" title="statement not covered" >			message = this.validationMethods[field.path](data);</span>
+<span class="cstat-no" title="statement not covered" >			if (message) {</span>
+<span class="cstat-no" title="statement not covered" >				addValidationError(field.path, message);</span>
+			}
+<span class="cstat-no" title="statement not covered" >			invalidated = true;</span>
+		}
+&nbsp;
+		field.updateItem(this.item, data, callback);
+&nbsp;
+	}.bind(this), function () {
+		progress();
+	});
+};
+&nbsp;
+&nbsp;
+/*!
+ * Export class
+ */
+&nbsp;
+module.exports = UpdateHandler;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 24 2016 20:05:17 GMT+1100 (AEDT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

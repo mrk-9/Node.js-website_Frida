@@ -1,0 +1,77 @@
+{% extends "../layouts/default.twig" %}
+
+{% block css %}
+<link rel='stylesheet' href="/css/blog.css" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<div class="no-header-image"></div>
+<section class="fw-main-row sidebar-right" role="main" itemprop="mainEntity" itemscope="itemscope" itemtype="http://schema.org/Blog">
+		<div class="fw-container">
+				<div class="fw-row">
+						<div class="fw-content-area col-md-8 col-sm-12">
+								<div class="fw-col-inner">
+										<article id="post-548" class="post post-details post-548 type-post status-publish format-standard has-post-thumbnail hentry category-all category-ideas tag-cleaning-earth tag-eco-battle tag-volunteerism" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+												<div class="fw-col-inner">
+														<header class="entry-header">
+																<div class="wrap-entry-meta">
+																		<span class="entry-date">
+																		<a rel="bookmark" href="/blog/post/{{data.post.slug}}">
+																			<time itemprop="datePublished" datetime="{{data.post.publishedDate}}">{{data.post._.publishedDate.format('MMMM Do, YYYY')}}</time>
+																		</a>
+																		</span>
+																		<span class="separator">&nbsp;|&nbsp;</span>
+																		<span itemscope="itemscope" itemtype="http://schema.org/Person" itemprop="author" class="author"> By <a href="#" title="" rel="author">{{ data.post.author.name.first  ~' '~  data.post.author.name.last }}</a></span>
+																		<span class="cat-links"> In {% for cat in data.post.categories %}<a href="/blog/{{ cat.key }}">{{ cat.name }}</a>{% if loop.last == false %}, {% endif %}{% endfor %}</span>
+																</div>
+																<h2 class="entry-title" itemprop="headline">{{ data.post.title }}</h2>
+														</header>
+
+
+														<div class="entry-content clearfix" itemprop="text">
+																<p><img class="aligncenter size-full wp-image-550" src="{{data.post.image.secure_url}} 1920w" alt="blog-details-pic-up" width="100%" height="373" srcset="{{data.post.image.secure_url}} 1920w" sizes="(max-width: 668px) 100vw, 668px" />
+																</p>
+																<p>&nbsp;</p>
+																<p>{{data.post.content.extended}}</p>
+														</div>
+														
+														<footer class="entry-meta">
+																<div class="fw-tag-links">
+																	{% for item in data.post.tags %}
+																	<a href="/blog?tag={{item}}" rel="tag">{{item}}</a>
+																	{% endfor %}
+																</div>
+														</footer>
+														
+												</div>
+										</article>
+										<!--
+										<div class="fw-row">
+												<div class="blog-post-navigation">
+														<a href="https://geekmindz.com/freeda/etiam-at-risus-justo/" rel="prev">
+																<div class="fw-itable">
+																		<div class="fw-icell"><i class="fa fa-angle-left"></i><span>Previous Story</span><strong>Etiam At Risus Justo</strong>
+																		</div>
+																</div>
+														</a>
+												</div>
+										</div>
+										-->
+
+								</div>
+								<!-- /.inner -->
+						</div>
+						<!-- /.content-area -->
+
+						{% include '../mixins/blog-aside.twig' %}
+						
+						
+				</div>
+				<!-- /.row -->
+		</div>
+		<!-- /.container -->
+</section>
+{% endblock %}
+{% block js %}
+<script type='text/javascript'>$(function(){$('#cat').on('change',function(e){window.location.href = $(this).val();});});</script>
+{% endblock %}

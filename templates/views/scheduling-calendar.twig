@@ -1,0 +1,436 @@
+{% extends '../layouts/admin.twig' %}
+{% block css %}
+<link rel='stylesheet'  href='/plugins/fullcalendar/fullcalendar-stock.css' type='text/css' media='all' />
+<link type="text/css" rel="stylesheet" href="/plugins/selectize/selectize.bootstrap3.css" />
+<style type="text/css">
+	.fc-event{
+		background-color: #2ECC63;
+	}
+	.fc-event.unassigned{
+		background-color: #CC3F3F;
+	}
+	.fc-event.needs-reassign{
+		background-color: #F9C62A;
+	}
+	.fc-event.pending-reassign{
+		background-color: #FAFF6B;
+		color: #000;
+	}
+	.modal-lg{
+		width: 100%;
+		max-width: 900px !important;
+	}
+</style>
+{% endblock %}
+{% block content %}
+<div class="col-md-12 col-lg-10 col-lg-offset-1">
+	<div id="calendar">
+	</div>
+</div>
+<div class="modal bs-example-modal-lg" id="modal" tabindex="-1" role="dialog" aria-labelledby="modallabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modalLabel"></h4>
+      </div>
+      <div class="modal-body" id="modal-content">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="cancel">Close</button>
+        <button type="button" class="btn btn-primary" id="save">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="/js/socket.io-1.4.5.js"></script>
+<script src="/plugins/selectize/selectize.min.js"></script>
+<script type='text/javascript' src='/js/moment.min.js'></script>
+<script type='text/javascript' src='/plugins/fullcalendar/fullcalendar.min.js'></script>
+{% if adminView %}
+<script>
+$(function(){
+
+	var socket = io('http://frida.hogs.xyz');
+
+	socket.on('connect', function(){
+
+		socket.emit('authentication',{u_id: '{{user._id}}'});
+		
+		socket.on('authenticated',function(){
+		
+			console.log('authenticated with socketio');
+			
+			socket.on('admin_calendar',function(){
+				$('#calendar').fullCalendar('refetchEvents');
+			});
+			
+			socket.emit('join','admin_calendar');
+			
+		});
+	});
+
+	function userAutocomplete(query, callback) {
+			if (!query.length) return callback();
+			$.ajax({
+					url: '/keystone/api/users/autocomplete',
+					type: 'GET',
+					dataType: 'json',
+					data: {
+							context: 'relationship',q: query,list: 'users',field: 'name'
+					},
+					error: function() {
+							callback();
+					},
+					success: function(res) {
+							console.log(res);
+							callback(res.items);
+					}
+			});
+	}
+	
+	var selectizeRender = {
+			item: function(item,escape){
+				return '<div class="Select-item"><span class="Select-item-icon" data-id="'+item.id+'">&#215;</span><span class="Select-item-label" >'+item.name+'</span></div>';
+			},
+			option: function(item, escape) {
+					console.log(item);
+					return '<div>' + item.name + '</div>';
+			}
+	};
+
+	$('#calendar').fullCalendar({
+			// put your options and callbacks here
+			events: '/api/adminSchedule',
+			header: {
+				left:   'title',
+				center: 'month basicWeek basicDay',
+				right:  'today prev,next'
+			},
+			eventRender: function(event,el){
+				console.log(event);
+				if(!event.assigned){
+					el.addClass('unassigned').attr('title','No one has been assigned');
+				}else{
+					var assignee = '<div class="assigned">Assigned: '+event.assigned.name.first+' '+event.assigned.name.last+'</div>';
+					if(event.pendingReassign){
+						switch(event.pendingReassign.status){
+							case 'pending':
+								el.addClass('pending-reassign').attr('title','Reassignment Pending');
+							break;
+							case 'open':
+							case 'rejected':
+								el.addClass('needs-reassign').attr('title','User requests reassignement');
+							break;
+						}
+					}
+					el.append(assignee);
+				}
+				
+				return el;
+				
+			},
+			eventClick: function(calEvent, jsEvent, view){
+				$('.fc-event[data-form-target]').removeAttr('data-form-target');
+				$(this).attr('data-form-target',true);
+				
+				if(!calEvent.assigned){
+					//load the assignement view
+					var template = '/forms/calendar-assign.html';
+					var title   = 'New Assignment';
+					
+					$.get(template,function(html){
+						var dateStart = calEvent.start._d;
+						var d = new Date(dateStart.getFullYear(), dateStart.getMonth(), dateStart.getDate());
+						var d = d.toISOString();
+						var id = calEvent.program_id;
+						var day = calEvent.dayRef;
+						var hidden = '<input type="hidden" name="date" value="'+d+'" /><input type="hidden" name="program" value="'+id+'" /><input type="hidden" name="day" value="'+day+'" />';
+						$('#modal-content').html(html);
+						$('#modal-content form').prepend(hidden);
+						$('#program').html(calEvent.title);
+						$('#location').html(calEvent.location);
+						$('#day').html(calEvent.dayName);
+						$('#modalLabel').html(title);
+						
+						
+						var $s = $('#assignee').selectize({
+							valueField: 'id',
+							labelField: 'name',
+							searchField: 'name',
+							options: [],
+							create: false,
+							render: selectizeRender,
+							load: userAutocomplete,
+							maxItems: 1
+						});
+						
+						$(document).on('click','.Select-item-icon',function(e){
+							e.preventDefault();
+							$s[0].selectize.removeItem($(this).attr('data-id'), true);
+							e.stopPropagation();
+						});
+						$('.modal-footer').find('#delete-btn').remove();
+						$('#modal').modal('show');
+					});
+					
+				}else{
+					var status = calEvent.pendingReassign.status || false;
+					var reassign = false;
+					switch(status){
+						case 'open':
+						case 'rejected':
+							//load the reassignment view
+							var template = '/forms/calendar-reassign.html';
+							var title = 'Assign Substitute';
+							
+							var delBtn = '<button type="button" class="btn btn-danger" id="delete-btn" data-type="substitution" data-id="'+calEvent.schedule+','+calEvent.pendingReassign._id+'" >Delete</button>';
+							
+						break;
+						case 'pending':
+							var template = '/forms/calendar-edit-substitution.html';
+							var title = 'Edit Substitution';
+							reassign = true;
+							var delBtn = '<button type="button" class="btn btn-danger" id="delete-btn" data-type="substitution" data-id="'+calEvent.schedule+','+calEvent.pendingReassign._id+'" >Delete</button>';
+						break;
+						
+						case false:
+							var template = '/forms/calendar-edit-schedule.html';
+							var title = 'Edit Schedule Item';
+							var delBtn = '<button type="button" class="btn btn-danger" id="delete-btn" data-type="schedule" data-id="'+calEvent.schedule+'" >Delete</button>';
+						break;
+						
+						default:
+							return;
+						
+					}
+				  
+					
+					$.get(template,function(html){
+						
+						console.log(calEvent.schedule);
+					
+						if(status != false){
+							var substitution = calEvent.pendingReassign._id;
+							var thedate = calEvent.pendingReassign.type == 'one-time' ? calEvent.pendingReassign.date.split('T')[0] : 'Every '+calEvent.dayName;
+							thedate +=' from '+calEvent.startTime +' to '+calEvent.endTime;
+							var thetype = calEvent.pendingReassign.type == 'one-time' ? 'One Time' : 'Recurring';
+							
+						}else{
+							var substitution = null;
+							var thedate = calEvent.record.recurring ? 'Every '+calEvent.dayName : calEvent.record.date.split('T')[0];
+							thedate +=' from '+calEvent.startTime +' to '+calEvent.endTime; 
+							var thetype = calEvent.record.recurring ? 'Recurring' : 'One Time';
+						}
+						
+						var hidden = '<input type="hidden" name="date" value="'+thedate+'" /><input type="hidden" name="type" value="'+thetype+'" /><input type="hidden" name="schedule" value="'+calEvent.schedule+'" />';
+						hidden +='<input type="hidden" name="dayName" value="'+calEvent.dayName+'" /><input type="hidden" name="programName" value="'+calEvent.title+'" />';
+						hidden +='<input type="hidden" name="programLocation" value="'+calEvent.location+'" />';
+						hidden +='<input type="hidden" name="substitution" value="'+substitution+'" /><input type="hidden" name="program" value="'+calEvent.program_id+'" />';
+						$('#modal-content').html(html);
+						$('#modal-content form').prepend(hidden);
+						$('#program').html(calEvent.title);
+						$('#location').html(calEvent.location);
+						$('#day').html(thedate);
+						$('#type').html(thetype);
+						$('#modalLabel').html(title);
+						$('#status').html(status == false ? 'Scheduled':'Pending Reassignment');
+						$('#assigned').html(calEvent.assigned.name.first + ' '+ calEvent.assigned.name.last);
+						
+						if(reassign){
+								$('#assignee-type').html('Pending Assignee:');
+								$('#assigned').html(calEvent.pendingReassign.user.name.first +' '+calEvent.pendingReassign.user.name.last);
+						}
+						
+						var $s = $('#assignee').selectize({
+							valueField: 'id',
+							labelField: 'name',
+							searchField: 'name',
+							options: [],
+							create: false,
+							render: selectizeRender,
+							load: userAutocomplete,
+							maxItems: 1
+						});
+						
+						$(document).on('click','.Select-item-icon',function(e){
+							e.preventDefault();
+							$s[0].selectize.removeItem($(this).attr('data-id'), true);
+							e.stopPropagation();
+						});
+	
+						//delete buttons
+						$('.modal-footer').find('#delete-btn').remove();
+						
+						
+						$('.modal-footer').prepend(delBtn);
+						
+						
+						
+						$('#modal').modal('show');
+						
+						
+					});
+					
+					
+				}
+			}
+	});
+	
+	$('#save').click(function(e){
+		//submit the modal form
+		e.preventDefault();
+		$('#modal form').one('submit',function(e){
+			e.preventDefault();
+			$('#save, #cancel').prop('disabled',true);
+			var formData = $(this).serialize();
+			$.post('/api/scheduleHandler',formData,function(data){
+				//data = JSON.parse(data);
+				console.log(data);
+				
+				if(data.success){
+					var action = $('#modal form').find('input[name="action"]').val();
+					$('#modal').modal('hide');
+					$('#modal-content').html('');
+					$('#modalLabel').html('');
+					var target = $('.fc-event[data-form-target]');
+					if(action == 'assign'){
+						target.removeClass('unassigned');
+						target.append('<div class="assigned">Assigned: '+data.assigned.name.first+' '+data.assigned.name.last+'</div>');
+					}
+				}else{
+					alert('something went wrong :/');
+				}
+			})
+			.always(function(){
+				$('#save, #cancel').prop('disabled',false);
+				$('#calendar').fullCalendar('refetchEvents');
+			});
+		}).trigger('submit');
+		e.stopPropagation();
+	});
+	
+	$(document).on('click','#delete-btn',function(e){
+		if(confirm('are you sure you want to delete this record?')){
+			var type = $(this).attr('data-type'),
+				id = $(this).attr('data-id');
+				
+				$.getJSON('/api/delSchedule?type='+type+'&id='+id,function(data){
+					if(data.success == true){
+						$('#calendar').fullCalendar('refetchEvents');
+						$('#modal').modal('hide');
+					}
+				});
+		}
+	});
+	
+	
+	
+});
+</script>
+{% else %}
+<script>
+$(function(){
+
+	var socket = io('http://frida.hogs.xyz');
+
+	socket.on('connect', function(){
+
+		socket.emit('authentication',{u_id: '{{user._id}}'});
+		
+		socket.on('authenticated',function(){
+		
+			console.log('authenticated with socketio');
+			
+			socket.on('user_calendar',function(){
+				$('#calendar').fullCalendar('refetchEvents');
+			});
+			
+			socket.emit('join','user_calendar');
+			
+		});
+	});
+
+	$('#calendar').fullCalendar({
+			// put your options and callbacks here
+			events: '/api/mySchedule',
+			header: {
+				left:   'title',
+				center: 'month basicWeek basicDay',
+				right:  'today prev,next'
+			},
+			eventRender: function(event,el){
+			
+				if(event.pendingReassign !== false){
+					el.addClass('needs-reassign').attr('title','Reassignment Pending');
+				}
+				
+				return el;
+				
+			},
+			eventClick: function(calEvent, jsEvent, view){
+				
+				if(calEvent.pendingReassign !== false){
+					//a thread already exists, go to it.
+					window.location = '/messaging/threads/'+calEvent.pendingReassign.thread;
+				}else{
+					//pop up the modal and ask if they would like to request a reassignment.
+					$.get('/forms/calendar-request-reassign.html',function(html){
+					
+							var dateStart = calEvent.start._d;
+							var d = new Date(dateStart.getFullYear(), dateStart.getMonth(), dateStart.getDate());
+							var d = d.toISOString();
+							var id = calEvent.program_id;
+							var day = calEvent.dayRef;
+							var s = calEvent.schedule;
+							var hidden ='<input type="hidden" name="date" value="'+d+'" /><input type="hidden" name="program" value="'+id+'" />';
+							hidden +='<input type="hidden" name="day" value="'+day+'" /><input type="hidden" name="schedule" value="'+s+'" />';
+							hidden +='<input type="hidden" name="dayName" value="'+calEvent.dayName+'" /><input type="hidden" name="programName" value="'+calEvent.title+'" />';
+							hidden +='<input type="hidden" name="programLocation" value="'+calEvent.location+'" />';
+							hidden +='<input type="hidden" name="time" value="from '+calEvent.startTime+' to '+calEvent.endTime+'" />';
+							$('#modal-content').html(html);
+							$('#modal-content form').prepend(hidden);
+							$('#program').html(calEvent.title);
+							$('#location').html(calEvent.location);
+							$('#day').html(calEvent.dayName);
+							$('#modalLabel').html('Request Reassignment');
+							$('#modal').modal('show');
+					});
+				}
+				
+			}
+	});
+	
+	$('#save').click(function(e){
+		//submit the modal form
+		e.preventDefault();
+		$('#modal form').one('submit',function(e){
+			e.preventDefault();
+			$('#save, #cancel').prop('disabled',true);
+			var formData = $(this).serialize();
+			$.post('/api/scheduleHandler',formData,function(data){
+
+				if(data.success){
+					$('#modal').modal('hide');
+					$('#modal-content').html('');
+					$('#modalLabel').html('');
+					window.location = '/messaging/threads/'+data.thread;
+				}else{
+					alert('something went wrong :/');
+				}
+			})
+			.always(function(){
+				$('#save, #cancel').prop('disabled',false);
+				$('#calendar').fullCalendar('refetchEvents');
+			});
+		}).trigger('submit');
+		e.stopPropagation();
+	});
+	
+});
+{% endif %}
+</script>
+{% endblock %}

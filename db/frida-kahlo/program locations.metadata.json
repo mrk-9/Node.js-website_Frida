@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"frida-kahlo.program locations"},{"v":1,"key":{"program":1},"name":"program_1","ns":"frida-kahlo.program locations","background":true,"safe":null},{"v":1,"key":{"location":1},"name":"location_1","ns":"frida-kahlo.program locations","background":true,"safe":null}]}

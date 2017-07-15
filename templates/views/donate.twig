@@ -1,0 +1,126 @@
+{% extends '../layouts/default.twig' %}
+
+{% block css %}
+<link rel='stylesheet' href="/css/donate.css" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<div class="no-header-image"></div>
+
+<section
+  class="fw-main-row sidebar-right"
+  role="main"
+  itemprop="mainEntity"
+  itemscope="itemscope"
+  itemtype="http://schema.org/Blog">
+
+  <div class="fw-container">
+
+    <div class="fw-row">
+      <div
+        class="fw-col-sm-8 fw-animated-element"
+        data-animation-type="fadeInLeft"
+        data-animation-delay="300">
+        <div class="fw-col-inner">
+          <div class="fw-heading fw-heading-left">
+            <h1 class="fw-special-title">
+              <span style="font-weight:900;">DONATE</span>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fw-row">
+      <div class="fw-content-area col-xs-12">
+        <h2>Every penny counts.</h2>
+        <p>Please help us raise funds for our continued operation.</p>
+        <p>Funds will go directly towards etc etc etc.</p>
+      </div>
+    </div>
+
+    <div class="fw-row">
+      <div class="fw-content-area col-xs-12">
+        <form id="form" method="post" class="donator">
+
+          <input type="hidden" id="token" name="token">
+          <input type="hidden" id="actualAmount" name="actualAmount">
+
+          {% if not donationTypes is empty %}
+          <div class="campaigns fw-row">
+            {% for donationType in donationTypes %}
+              <input id="donate-{{ loop.index }}" type="radio" {% if loop.index == 1 %}checked{% endif %} name="donationType" value="{{ donationType._id }}">
+              <label for="donate-{{ loop.index }}" class="campaign active col-md-{% if donationTypes.length == 1 %}12{% else %}{% if donationTypes.length == 2 %}6{% else %}4{% endif %}{% endif %}">
+                <h3>{{ donationType.name }}</h3>
+                <p>{{ donationType.description }}</p>
+              </label>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <div class="text-center">
+            <h4>Amount:</h4>
+            <div class="amount-wrapper">
+              <span class="currency">$</span>
+              <input type="text" id="amount" name="amount" size="8" placeholder="20">
+            </div>
+            {% if stripeError %}
+              <div id="error">
+                {{ stripeError }}
+              </div>
+            {% else %}
+              <div id="error" style="display:none">
+                Please enter a valid amount.
+              </div>
+            {% endif %}
+            <button id="button" disabled class="stripe-button-el donate text-center">Donate</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+{% endblock %}
+
+{% block js %}
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script>
+(function () {
+
+  var handler;
+
+  $("#button").prop('disabled', false).on('click', function (e) {
+    e.preventDefault();
+    $("#error").hide();
+    var amount = $('#amount').val().trim();
+    if (amount === '') {
+      $("#actualAmount").val(2000)
+      handler.open({ amount: 2000 })
+    } else {
+      amount = parseInt(amount)
+      if (isNaN(amount)) {
+        $("#error").show();
+        $("#amount").val('');
+      } else {
+        $("#actualAmount").val(amount * 100);
+        handler.open({ amount: amount * 100 }); } } });
+
+  var handler = StripeCheckout.configure(
+    { key: '{{ stripeSettings.publishableKey }}'
+    , locale: 'auto'
+    , name: 'Frida Kahlo Community Organization'
+    , description: 'One-time donation'
+    , token: function (token) {
+        $("#token").val(token.id);
+        $("#form").submit(); } });
+
+  $(window).on('popstate', function () {
+    handler.close();
+  });
+
+})();
+</script>
+{% endblock %}

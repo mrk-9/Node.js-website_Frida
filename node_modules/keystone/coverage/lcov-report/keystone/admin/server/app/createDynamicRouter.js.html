@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for keystone/admin/server/app/createDynamicRouter.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">all files</a> / <a href="index.html">keystone/admin/server/app/</a> createDynamicRouter.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">8.33% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>4/48</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/1</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">8.33% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>4/48</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var bodyParser = require('body-parser');
+var express = require('express');
+var multer = require('multer');
+&nbsp;
+module.exports = <span class="fstat-no" title="function not covered" >function createDynamicRouter (keystone) {</span>
+&nbsp;
+	// ensure keystone nav has been initialised
+	// TODO: move this elsewhere (on demand generation, or client-side?)
+<span class="cstat-no" title="statement not covered" >	if (!keystone.nav) {</span>
+<span class="cstat-no" title="statement not covered" >		keystone.nav = keystone.initNav();</span>
+	}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	var router = express.Router();</span>
+&nbsp;
+	// Use bodyParser and multer to parse request bodies and file uploads
+<span class="cstat-no" title="statement not covered" >	router.use(bodyParser.json({}));</span>
+<span class="cstat-no" title="statement not covered" >	router.use(bodyParser.urlencoded({ extended: true }));</span>
+<span class="cstat-no" title="statement not covered" >	router.use(multer({ includeEmptyFields: true }));</span>
+&nbsp;
+	// #1: Session API
+	// TODO: this should respect keystone auth options
+<span class="cstat-no" title="statement not covered" >	router.get('/api/session', require('../api/session/get'));</span>
+<span class="cstat-no" title="statement not covered" >	router.post('/api/session/signin', require('../api/session/signin'));</span>
+<span class="cstat-no" title="statement not covered" >	router.post('/api/session/signout', require('../api/session/signout'));</span>
+&nbsp;
+	// #2: Session Routes
+	// Bind auth middleware (generic or custom) to * routes, allowing
+	// access to the generic signin page if generic auth is used
+<span class="cstat-no" title="statement not covered" >	if (keystone.get('auth') === true) {</span>
+		// TODO: poor separation of concerns; settings should be defaulted elsewhere
+<span class="cstat-no" title="statement not covered" >		if (!keystone.get('signout url')) {</span>
+<span class="cstat-no" title="statement not covered" >			keystone.set('signout url', '/' + keystone.get('admin path') + '/signout');</span>
+		}
+<span class="cstat-no" title="statement not covered" >		if (!keystone.get('signin url')) {</span>
+<span class="cstat-no" title="statement not covered" >			keystone.set('signin url', '/' + keystone.get('admin path') + '/signin');</span>
+		}
+<span class="cstat-no" title="statement not covered" >		if (!keystone.nativeApp || !keystone.get('session')) {</span>
+<span class="cstat-no" title="statement not covered" >			router.all('*', keystone.session.persist);</span>
+		}
+<span class="cstat-no" title="statement not covered" >		router.all('/signin', require('../routes/signin'));</span>
+<span class="cstat-no" title="statement not covered" >		router.all('/signout', require('../routes/signout'));</span>
+<span class="cstat-no" title="statement not covered" >		router.use(keystone.session.keystoneAuth);</span>
+	} else <span class="cstat-no" title="statement not covered" >if (typeof keystone.get('auth') === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >		router.use(keystone.get('auth'));</span>
+	}
+&nbsp;
+	// #3: Home route
+<span class="cstat-no" title="statement not covered" >	router.get('/', require('../routes/home'));</span>
+&nbsp;
+	// #4: Cloudinary and S3 specific APIs
+	// TODO: poor separation of concerns; should / could this happen elsewhere?
+<span class="cstat-no" title="statement not covered" >	if (keystone.get('cloudinary config')) {</span>
+<span class="cstat-no" title="statement not covered" >		router.get('/api/cloudinary/get', require('../api/cloudinary').get);</span>
+<span class="cstat-no" title="statement not covered" >		router.get('/api/cloudinary/autocomplete', require('../api/cloudinary').autocomplete);</span>
+<span class="cstat-no" title="statement not covered" >		router.post('/api/cloudinary/upload', require('../api/cloudinary').upload);</span>
+	}
+<span class="cstat-no" title="statement not covered" >	if (keystone.get('s3 config')) {</span>
+<span class="cstat-no" title="statement not covered" >		router.post('/api/s3/upload', require('../api/s3').upload);</span>
+	}
+&nbsp;
+	// #5: Core Lists API
+&nbsp;
+	// Init API request helpers
+<span class="cstat-no" title="statement not covered" >	router.use('/api', require('../middleware/apiError'));</span>
+<span class="cstat-no" title="statement not covered" >	router.use('/api', require('../middleware/logError'));</span>
+&nbsp;
+	// Init req with list
+<span class="cstat-no" title="statement not covered" >	var initList = require('../middleware/initList')(keystone);</span>
+	// lists
+<span class="cstat-no" title="statement not covered" >	router.all('/api/counts', require('../api/counts'));</span>
+<span class="cstat-no" title="statement not covered" >	router.get('/api/:list', initList(), require('../api/list/get'));</span>
+<span class="cstat-no" title="statement not covered" >	router.get('/api/:list/:format(export.csv|export.json)', initList(), require('../api/list/download'));</span>
+<span class="cstat-no" title="statement not covered" >	router.post('/api/:list/create', initList(), require('../api/list/create'));</span>
+<span class="cstat-no" title="statement not covered" >	router.post('/api/:list/update', initList(), require('../api/list/update'));</span>
+<span class="cstat-no" title="statement not covered" >	router.post('/api/:list/delete', initList(), require('../api/list/delete'));</span>
+	// items
+<span class="cstat-no" title="statement not covered" >	router.get('/api/:list/:id', initList(), require('../api/item/get'));</span>
+<span class="cstat-no" title="statement not covered" >	router.post('/api/:list/:id', initList(), require('../api/item/update'));</span>
+<span class="cstat-no" title="statement not covered" >	router.post('/api/:list/:id/delete', initList(), require('../api/list/delete'));</span>
+<span class="cstat-no" title="statement not covered" >	router.post('/api/:list/:id/sortOrder/:sortOrder/:newOrder', initList(), require('../api/item/sortOrder'));</span>
+	// #6: List Routes
+<span class="cstat-no" title="statement not covered" >	router.all('/:list/:page([0-9]{1,5})?', initList(true), require('../routes/list'));</span>
+<span class="cstat-no" title="statement not covered" >	router.all('/:list/:item', initList(true), require('../routes/item'));</span>
+&nbsp;
+	// TODO: catch 404s and errors with Admin-UI specific handlers
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	return router;</span>
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 24 2016 20:05:17 GMT+1100 (AEDT)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

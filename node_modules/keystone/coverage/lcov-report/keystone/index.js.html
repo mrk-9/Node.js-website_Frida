@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for keystone/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">keystone/</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">85.32% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>93/109</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">57.5% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>23/40</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">86.92% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>93/107</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var _ = require('lodash');
+var express = require('express');
+var fs = require('fs');
+var grappling = require('grappling-hook');
+var path = require('path');
+var utils = require('keystone-utils');
+&nbsp;
+/**
+ * Don't use process.cwd() as it breaks module encapsulation
+ * Instead, let's use module.parent if it's present, or the module itself if there is no parent (probably testing keystone directly if that's the case)
+ * This way, the consuming app/module can be an embedded node_module and path resolutions will still work
+ * (process.cwd() breaks module encapsulation if the consuming app/module is itself a node_module)
+ */
+var moduleRoot = (function (_rootPath) {
+	var parts = _rootPath.split(path.sep);
+	parts.pop(); // get rid of /node_modules from the end of the path
+	return parts.join(path.sep);
+})(module.parent ? module.parent.paths[0] : <span class="branch-1 cbranch-no" title="branch not covered" >module.paths[0])</span>;
+&nbsp;
+&nbsp;
+/**
+ * Keystone Class
+ *
+ * @api public
+ */
+var Keystone = function () {
+	grappling.mixin(this).allowHooks('pre:static', 'pre:bodyparser', 'pre:session', 'pre:routes', 'pre:render', 'updates', 'signout', 'signin', 'pre:logger');
+	this.lists = {};
+	this.paths = {};
+	this._options = {
+		'name': 'Keystone',
+		'brand': 'Keystone',
+		'admin path': 'keystone',
+		'compress': true,
+		'headless': false,
+		'logger': ':method :url :status :response-time ms',
+		'auto update': false,
+		'model prefix': null,
+		'module root': moduleRoot,
+		'frame guard': 'sameorigin',
+	};
+	this._redirects = {};
+&nbsp;
+	// expose express
+	this.express = express;
+&nbsp;
+	// init environment defaults
+	this.set('env', process.env.NODE_ENV || 'development');
+&nbsp;
+	this.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT);
+	this.set('host', process.env.HOST || process.env.IP || process.env.OPENSHIFT_NODEJS_IP);
+	this.set('listen', process.env.LISTEN);
+&nbsp;
+	this.set('ssl', process.env.SSL);
+	this.set('ssl port', process.env.SSL_PORT);
+	this.set('ssl host', process.env.SSL_HOST || process.env.SSL_IP);
+	this.set('ssl key', process.env.SSL_KEY);
+	this.set('ssl cert', process.env.SSL_CERT);
+&nbsp;
+	this.set('cookie secret', process.env.COOKIE_SECRET);
+	this.set('cookie signin', (this.get('env') === 'development') ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false)</span>;
+&nbsp;
+	this.set('embedly api key', process.env.EMBEDLY_API_KEY || process.env.EMBEDLY_APIKEY);
+	this.set('mandrill api key', process.env.MANDRILL_API_KEY || process.env.MANDRILL_APIKEY);
+	this.set('mandrill username', process.env.MANDRILL_USERNAME);
+	this.set('google api key', process.env.GOOGLE_BROWSER_KEY);
+	this.set('google server api key', process.env.GOOGLE_SERVER_KEY);
+	this.set('ga property', process.env.GA_PROPERTY);
+	this.set('ga domain', process.env.GA_DOMAIN);
+	this.set('chartbeat property', process.env.CHARTBEAT_PROPERTY);
+	this.set('chartbeat domain', process.env.CHARTBEAT_DOMAIN);
+	this.set('allowed ip ranges', process.env.ALLOWED_IP_RANGES);
+&nbsp;
+	<span class="missing-if-branch" title="if path not taken" >I</span>if (process.env.S3_BUCKET &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >process.env.S3_KEY </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >process.env.S3_SECRET)</span> {
+<span class="cstat-no" title="statement not covered" >		this.set('s3 config', { bucket: process.env.S3_BUCKET, key: process.env.S3_KEY, secret: process.env.S3_SECRET, region: process.env.S3_REGION });</span>
+	}
+&nbsp;
+	<span class="missing-if-branch" title="if path not taken" >I</span>if (process.env.AZURE_STORAGE_ACCOUNT &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >process.env.AZURE_STORAGE_ACCESS_KEY)</span> {
+<span class="cstat-no" title="statement not covered" >		this.set('azurefile config', { account: process.env.AZURE_STORAGE_ACCOUNT, key: process.env.AZURE_STORAGE_ACCESS_KEY });</span>
+	}
+&nbsp;
+	<span class="missing-if-branch" title="if path not taken" >I</span>if (process.env.CLOUDINARY_URL) {
+		// process.env.CLOUDINARY_URL is processed by the cloudinary package when this is set
+<span class="cstat-no" title="statement not covered" >		this.set('cloudinary config', true);</span>
+	}
+&nbsp;
+	// init mongoose
+	this.set('mongoose', require('mongoose'));
+&nbsp;
+	// Attach middleware packages, bound to this instance
+	this.middleware = {
+		api: require('./lib/middleware/api')(this),
+		cors: require('./lib/middleware/cors')(this),
+	};
+};
+&nbsp;
+_.extend(Keystone.prototype, require('./lib/core/options'));
+&nbsp;
+&nbsp;
+Keystone.prototype.prefixModel = function (key) {
+	var modelPrefix = this.get('model prefix');
+&nbsp;
+	<span class="missing-if-branch" title="if path not taken" >I</span>if (modelPrefix) {
+<span class="cstat-no" title="statement not covered" >		key = modelPrefix + '_' + key;</span>
+	}
+&nbsp;
+	return require('mongoose/lib/utils').toCollectionName(key);
+};
+&nbsp;
+/* Attach core functionality to Keystone.prototype */
+Keystone.prototype.createItems = require('./lib/core/createItems');
+Keystone.prototype.getOrphanedLists = require('./lib/core/getOrphanedLists');
+Keystone.prototype.importer = require('./lib/core/importer');
+Keystone.prototype.init = require('./lib/core/init');
+Keystone.prototype.initDatabase = require('./lib/core/initDatabase');
+Keystone.prototype.initExpressApp = require('./lib/core/initExpressApp');
+Keystone.prototype.initExpressSession = require('./lib/core/initExpressSession');
+Keystone.prototype.initNav = require('./lib/core/initNav');
+Keystone.prototype.list = require('./lib/core/list');
+Keystone.prototype.openDatabaseConnection = require('./lib/core/openDatabaseConnection');
+Keystone.prototype.populateRelated = require('./lib/core/populateRelated');
+Keystone.prototype.redirect = require('./lib/core/redirect');
+Keystone.prototype.render = require('./lib/core/render');
+Keystone.prototype.start = require('./lib/core/start');
+Keystone.prototype.wrapHTMLError = require('./lib/core/wrapHTMLError');
+&nbsp;
+&nbsp;
+/**
+ * The exports object is an instance of Keystone.
+ *
+ * @api public
+ */
+var keystone = module.exports = new Keystone();
+&nbsp;
+// Expose modules and Classes
+keystone.Admin = {
+	Server: require('./admin/server'),
+};
+keystone.Email = require('./lib/email');
+keystone.Field = require('./fields/types/Type');
+keystone.Field.Types = require('./lib/fieldTypes');
+keystone.Keystone = Keystone;
+keystone.List = require('./lib/list');
+keystone.View = require('./lib/view');
+&nbsp;
+keystone.content = require('./lib/content');
+keystone.security = {
+	csrf: require('./lib/security/csrf'),
+};
+keystone.utils = utils;
+&nbsp;
+/**
+ * returns all .js modules (recursively) in the path specified, relative
+ * to the module root (where the keystone project is being consumed from).
+ *
+ * ####Example:
+ *
+ *     var models = keystone.import('models');
+ *
+ * @param {String} dirname
+ * @api public
+ */
+&nbsp;
+Keystone.prototype.import = function (dirname) {
+&nbsp;
+	var initialPath = path.join(this.get('module root'), dirname);
+&nbsp;
+	var doImport = function (fromPath) {
+&nbsp;
+		var imported = {};
+&nbsp;
+		fs.readdirSync(fromPath).forEach(function (name) {
+&nbsp;
+			var fsPath = path.join(fromPath, name);
+			var info = fs.statSync(fsPath);
+&nbsp;
+			// recur
+			<span class="missing-if-branch" title="if path not taken" >I</span>if (info.isDirectory()) {
+<span class="cstat-no" title="statement not covered" >				imported[name] = doImport(fsPath);</span>
+			} else {
+				// only import files that we can `require`
+				var ext = path.extname(name);
+				var base = path.basename(name, ext);
+				<span class="missing-if-branch" title="else path not taken" >E</span>if (require.extensions[ext]) {
+					imported[base] = require(fsPath);
+				}
+			}
+&nbsp;
+		});
+&nbsp;
+		return imported;
+	};
+&nbsp;
+	return doImport(initialPath);
+};
+&nbsp;
+&nbsp;
+/**
+ * Applies Application updates
+ */
+&nbsp;
+Keystone.prototype.applyUpdates = <span class="fstat-no" title="function not covered" >function (callback) {</span>
+<span class="cstat-no" title="statement not covered" >	var self = this;</span>
+<span class="cstat-no" title="statement not covered" >	self.callHook('pre:updates', <span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >		if (err) <span class="cstat-no" title="statement not covered" >return callback(err);</span></span>
+<span class="cstat-no" title="statement not covered" >		require('./lib/updates').apply(<span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >			if (err) <span class="cstat-no" title="statement not covered" >return callback(err);</span></span>
+<span class="cstat-no" title="statement not covered" >			self.callHook('post:updates', callback);</span>
+		});
+	});
+};
+&nbsp;
+&nbsp;
+/**
+ * Logs a configuration error to the console
+ *
+ * @api public
+ */
+&nbsp;
+Keystone.prototype.console = {};
+Keystone.prototype.console.err = <span class="fstat-no" title="function not covered" >function (type, msg) {</span>
+<span class="cstat-no" title="statement not covered" >	if (keystone.get('logger')) {</span>
+<span class="cstat-no" title="statement not covered" >		var dashes = '\n------------------------------------------------\n';</span>
+<span class="cstat-no" title="statement not covered" >		console.log(dashes + 'KeystoneJS: ' + type + ':\n\n' + msg + dashes);</span>
+	}
+};
+&nbsp;
+/**
+ * Keystone version
+ *
+ * @api public
+ */
+&nbsp;
+keystone.version = require('./package.json').version;
+&nbsp;
+&nbsp;
+// Expose Modules
+keystone.session = require('./lib/session');
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 24 2016 20:05:17 GMT+1100 (AEDT)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

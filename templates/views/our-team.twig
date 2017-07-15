@@ -1,0 +1,161 @@
+{% extends "../layouts/default.twig" %}
+
+{% block css %}
+<link rel='stylesheet' href="/css/our-team.css" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<div class="fw-page-builder-content">
+		<section id="section-57310b39c20e1" class=" fw-main-row-custom fw-main-row-top fw-section-no-padding  auto  " style="   ">
+				<div class="fw-container">
+						<div class="fw-row">
+								<div id="column-1bb388ab8fceab612aae2dcb464bfac8" class="fw-col-sm-12 tf-sh-1bb388ab8fceab612aae2dcb464bfac8">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-divider-space  fw-custom-space  clearfix" style="height:100px;"></div>
+										</div>
+								</div>
+						</div>
+
+						<div class="fw-row">
+								<div id="column-cd981a19a5cb59eb6da3b5ba2269b163" class="fw-col-sm-8 tf-sh-cd981a19a5cb59eb6da3b5ba2269b163  fw-animated-element" data-animation-type="fadeInLeft" data-animation-delay="300">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-heading fw-heading-left  tf-sh-c81d7edeb2cd77f9ab924d7e69751a67">
+														<h1 class="fw-special-title">OUR <span style="font-weight:900;">TEAM</span></h1>
+
+
+												</div>
+										</div>
+								</div>
+								<div id="column-fea2fc208fb4cfdff7fb6ce0ce063333" class="fw-col-sm-4 tf-sh-fea2fc208fb4cfdff7fb6ce0ce063333  fw-animated-element" data-animation-type="fadeInRight" data-animation-delay="300">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<a href="{{team.button.url}}" target="_self" class="fw-btn tf-sh-cd9d96a0089052d148ac18e330d8a2c1 fw-btn-full fw-btn-lg   fw-btn-2" style="">
+														<span>{{team.button.text}}</span>
+												</a>
+										</div>
+								</div>
+						</div>
+
+						<div class="fw-row">
+								<div id="column-613a9c2577b97532384da8022b7978fd" class="fw-col-sm-12 tf-sh-613a9c2577b97532384da8022b7978fd">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-divider-space  fw-custom-space  clearfix" style="height:50px;"></div>
+
+												<div class="fw-block-image-parent  fw-animated-element " data-animation-type="fadeInUp" data-animation-delay="300" style="width: 100%; ">
+														<span class="fw-block-image-child fw-noratio fw-ratio-container">
+														<noscript>
+														<img itemprop="image" src="{{team.image.secure_url}}"  alt="our-team-img-1" data-maxdpr="1.7" class="lazyload" />
+														</noscript>
+														<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sizes="auto" data-srcset="{{team.image.secure_url}} 1920w"   alt="our-team-img-1" data-maxdpr="1.7" class="lazyload" /><span class="fw-after-no-ratio" style="padding-bottom: 44.017094017094%"></span> </span>
+												</div>
+
+
+												<div class="fw-divider-space  fw-custom-space  clearfix" style="height:50px;"></div>
+												<div class="fw-heading fw-heading-left  fw-animated-element tf-sh-23169aef79d706d0a2ba600066ffd974" data-animation-type="fadeInUp" data-animation-delay="300">
+														<h2 class="fw-special-title">{{team.section1.title}}</h2>
+
+
+												</div>
+												<div class="fw-divider-space  fw-custom-space  clearfix" style="height:10px;"></div>
+										</div>
+								</div>
+						</div>
+
+						<div class="fw-row">
+								<div id="column-89b6ed55a259fa8bc2f20cd779788b0b" class="fw-col-sm-12 tf-sh-89b6ed55a259fa8bc2f20cd779788b0b  fw-animated-element" data-animation-type="fadeInUp" data-animation-delay="300">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-text-box tf-sh-bcb632d925a1d83577fcf7f979e94318 ">
+														<div class="fw-text-inner">
+																<p>{{team.section1.description}}</p>
+														</div>
+												</div>
+										</div>
+								</div>
+						</div>
+
+						<div class="fw-row">
+								<div id="column-9dcde66eb09fa5fb8ecc872abad8eec9" class="fw-col-sm-12 tf-sh-9dcde66eb09fa5fb8ecc872abad8eec9  fw-animated-element" data-animation-type="fadeInUp" data-animation-delay="300">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-divider-space  fw-custom-space  clearfix" style="height:50px;"></div>
+												<div class="fw-text-box tf-sh-89adc4a5624fab8e8e6d1ba69e35c833 ">
+														<div class="fw-text-inner">
+																<p>"{{team.section1.qoute}}"</p>
+														</div>
+												</div>
+												<div class="fw-divider-space  fw-custom-space  clearfix" style="height:70px;"></div>
+										</div>
+								</div>
+						</div>
+
+						<div class="fw-row">
+								{% for member in team.users %}
+								<div id="column-425185af5ed8f4c0e3634f846d7cd328" class="fw-col-sm-6 fw-col-md-3 tf-sh-425185af5ed8f4c0e3634f846d7cd328  fw-animated-element team_info_container" data-id="{{member._id}}" data-animation-type="fadeInUp" data-animation-delay="300">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-team tf-sh-25654cc4121c4145074df42b458e96af  fw-content-align-left">
+														<div style="width: 270px;" class="fw-team-image fw-block-image-parent ">
+																<div class="fw-block-image-child fw-ratio-1 fw-ratio-container">
+																		<noscript><img itemprop="image" src="{{member.image.secure_url}}" alt="team-member-1" data-maxdpr="1.7" width="270" class="lazyload" />
+																		</noscript><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sizes="auto" data-srcset="{{member.image.secure_url}} 1920w" alt="" data-maxdpr="1.7" width="270" class="lazyload" />
+																</div>
+														</div>
+
+														<div class="fw-team-inner" id="team_info_{{member._id}}" style="display:none">
+																<div class="fw-team-name">
+																		<h3>{{member.name.first}} <span style="font-weight:900; font-family:lato; font-size:30px;">{{member.name.last}}</span></h3>
+																		<span>{{member.title}}</span>
+																</div>
+
+
+														</div>
+												</div>
+										</div>
+								</div>
+								{% endfor %}
+						</div>
+
+						<div class="fw-row">
+								<div id="column-98b0ddf1361d56998e4dcd3c14bc69b8" class="fw-col-sm-12 tf-sh-98b0ddf1361d56998e4dcd3c14bc69b8">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-divider-space  fw-custom-space  fw-mobile-hide-element clearfix" style="height:70px;"></div>
+												<div class="fw-heading fw-heading-left  fw-animated-element tf-sh-23169aef79d706d0a2ba600066ffd974" data-animation-type="fadeInUp" data-animation-delay="300">
+														<h2 class="fw-special-title">{{team.section2.title}}</h2>
+												</div>
+												<div class="fw-text-box tf-sh-4fb2607d9f8e9cc3e5e496b5173cafc1  fw-animated-element" data-animation-type="fadeInUp" data-animation-delay="300">
+														<div class="fw-text-inner">
+																{{team.section2.description}}
+														</div>
+												</div>
+												<div class="fw-divider-space  fw-custom-space  clearfix" style="height:80px;"></div>
+												<div class="text-center">
+														<a href="{{team.section2.button.url}}" target="_self" class="fw-btn tf-sh-24ae4302d32f939fb2024b5c9f308750     fw-animated-element fw-btn-1" data-animation-type="fadeInUp" data-animation-delay="300" style="width:430px; height:75px; line-height:75px;">
+																<span style="top:0;">{{team.section2.button.text}}</span>
+														</a>
+												</div>
+										</div>
+								</div>
+						</div>
+
+						<div class="fw-row">
+								<div id="column-1bb388ab8fceab612aae2dcb464bfac8" class="fw-col-sm-12 tf-sh-1bb388ab8fceab612aae2dcb464bfac8">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-divider-space  fw-custom-space  clearfix" style="height:160px;"></div>
+										</div>
+								</div>
+						</div>
+
+				</div>
+		</section>
+</div>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

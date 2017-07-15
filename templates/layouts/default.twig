@@ -1,0 +1,211 @@
+{%spaceless%}
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<title>{{ title|default("Frida Kahlo Community Organization | Our passion is our community") }}</title>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+		<link rel='stylesheet' id='ls-google-fonts-css'  href='https://fonts.googleapis.com/css?family=Lato:100,300,regular,700,900%7COpen+Sans:300%7CIndie+Flower:regular%7COswald:300,regular,700&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+		<link rel='stylesheet' id='fw-font-awesome-css'  href='/css/font-awesome.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='bootstrap-css'  href='/css/bootstrap.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='fw-mmenu-css'  href='/css/jquery.mmenu.all.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='the-core-style-css'  href='/css/the-core-style.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='prettyPhoto-css'  href='/css/prettyPhoto.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='animate-css'  href='/css/animate.css' type='text/css' media='all' />
+
+		{# Include template-specific stylesheets by extending the css block #}
+		{% block css %}{% endblock %}
+
+		{# Add any other template-specific HEAD tags by extending the head block #}
+		{% block head %}{% endblock %}
+	</head>
+	
+	<body class="page page-id-8 page-child parent-pageid-6 page-template page-template-visual-builder-template page-template-visual-builder-template-php give-test-mode give-page fw-full fw-website-align-center fw-section-space-md header-1 fw-top-bar-off fw-no-absolute-header fw-top-social-right fw-header-sticky fw-top-logo-left fw-logo-image fw-logo-retina" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+		<div id="page" class="hfeed site">
+		
+			{# HEADER #}
+			<header class="fw-header">
+				<div class="fw-header-main">
+					<div class="fw-container">
+						<div class="fw-wrap-logo">
+
+							<a href="/" class="fw-site-logo">
+								<img src="/img/logoV1.png" alt="Frida Kahlo Community Organization" />
+							</a>
+
+						</div>
+						<div class="fw-nav-wrap" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+							<nav id="fw-menu-primary" class="fw-site-navigation primary-navigation">
+								<ul id="menu-main-menu" class="fw-nav-menu">
+									<li id="menu-item-452" class="menu-item menu-item-type-post_type menu-item-object-page page_item page-item-8 menu-item-has-children menu-item-452 {% if active == 'about' %}current-menu-item{%endif%}">
+										<a href="/about/our-mission" >FRIDA</a>
+										<ul class="sub-menu">
+											<li id="menu-item-58" class="menu-item menu-item-type-post_type menu-item-object-page page-item-8 menu-item-58"><a href="/about/our-mission" >APPROACH</a></li>
+											<li id="menu-item-59" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59"><a href="/about/our-team" >OUR TEAM</a></li>
+											<li id="menu-item-56" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-56"><a href="/about/faq" >FAQ</a></li>
+										</ul>
+									</li>
+									<li id="menu-item-61" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-61 {% if active == 'programs' %}current-menu-item{%endif%}">
+                    <a href="/programs/all" >EDUCATION</a>
+										<ul class="sub-menu">
+											<li id="menu-item-879" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-879"><a href="/programs/rise" >RISE</a></li>
+											<li id="menu-item-880" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-880"><a href="/programs/health" >HEALTH</a></li>
+											<li id="menu-item-62" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-62"><a href="/events-calendar" >CALENDAR</a></li>
+										</ul>
+									</li>
+									<li id="menu-item-878" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-878 {% if active == 'immigration' %}current-menu-item{%endif%}">
+                    <a href="/immigration">IMMIGRATION</a>
+                    <ul class="sub-menu">
+                      <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/immigration/faq">IMMIGRATION Q & A</a></li>
+                    </ul>
+                  </li>
+									<li id="menu-item-554" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-554 {% if active == 'blog' %}current-menu-item{%endif%}"><a href="/blog" >BLOG</a></li>
+									<li id="menu-item-65" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-65 {% if active == 'gallery' %}current-menu-item{%endif%}"><a href="/moments" >MOMENTS</a></li>
+									<li id="menu-item-72" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-72 {% if active == 'contact' %}current-menu-item{%endif%}"><a href="/contact" >CONTACT</a></li>
+									<li id="menu-item-60" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60 {% if active == 'volunteer' %}current-menu-item{%endif%}"><a href="/volunteer/get-involved" >GET INVOLVED</a></li>
+									<li id="menu-item-73" class="donate menu-item menu-item-type-post_type menu-item-object-page menu-item-73 {% if active == 'donate' %}current-menu-item{%endif%}"><a href="/volunteer/donate" >DONATE</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</header>	
+			
+			{# BODY #}
+			<div id="main" class="site-main">
+				{# NOTE:
+					 There is no .container wrapping class around body blocks to allow more flexibility in design.
+					 Remember to include it in your templates when you override the intro and content blocks! #}
+
+				{# The Intro block appears above flash messages (used for temporary information display) #}
+				{% block intro %}{% endblock %}
+
+				{% if messages is defined %}
+				{% import "../mixins/flash-messages.twig" as FlashMessages %}
+				{{ FlashMessages.renderMessages(messages) }}
+				{% endif %}
+
+				{# The content block should contain the body of your template"s content #}
+				{% block content %}{% endblock %}
+			</div>
+			
+			{# FOOTER #}
+			<footer id="colophon" class="site-footer fw-footer " role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+				<div class="fw-footer-widgets footer-cols-4">
+					<div class="fw-inner">
+						<div class="fw-container">
+							<div class="fw-row">
+								<div class="fw-col-md-3 fw-col-sm-6">
+									<aside id="nav_menu-2" class="widget widget_nav_menu">
+										<h2 class="widget-title"><span>WHO WE ARE</span></h2>
+										<div class="menu-who-we-are-container">
+											<ul id="menu-who-we-are" class="menu">
+												<li id="menu-item-221" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-221">
+													<a href="/about/our-team" >OUR TEAM</a>
+												</li>
+												<li id="menu-item-225" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-225">
+													<a href="#" >PARTNERS</a>
+												</li>
+												<li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224">
+													<a href="#" >PRESS</a>
+												</li>
+												<li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223">
+													<a href="/contact" >CONTACT</a>
+												</li>
+												<li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-222">
+													<a href="/about/faq" >FAQ</a>
+												</li>
+											</ul>
+										</div>
+									</aside>						
+								</div>
+								<div class="fw-col-md-3 fw-col-sm-6">
+									<aside id="nav_menu-3" class="widget widget_nav_menu">
+									<h2 class="widget-title"><span>WHAT WE DO</span></h2>
+									<div class="menu-what-we-do-container">
+										<ul id="menu-what-we-do" class="menu">
+											<li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-8 current_page_item menu-item-226"><a href="/about/our-mission" >OUR MISSION</a></li>
+											<li id="menu-item-227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-227"><a href="/volunteer/get-involved" >GET INVOLVED</a></li>
+											<li id="menu-item-228" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-228"><a href="/programs/events-calendar" >EVENTS</a></li>
+											<li id="menu-item-229" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-229"><a href="/moments" >GALLERY</a></li>
+											<li id="menu-item-231" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-231"><a href="/blog" >BLOG</a></li>
+										</ul>
+									</div>
+									</aside>
+								</div>
+								<div class="fw-col-md-3 fw-col-sm-6">
+									<aside id="text-6" class="widget widget_text">
+									<h2 class="widget-title"><span>ABOUT US</span></h2>			
+									<div class="textwidget">
+										<span style="padding-right:30px;">
+											Lorem ipsum dolor sit amet, ad mea mazim putant dissentias. Dico primis cum et, et verear aliquid equidem ius, mel no nonumes nostrum dissentiunt. 
+											Nulla ubique docendi his te, eu magna epicurei eum.</span>
+										</div>
+									</aside>						
+								</div>
+								<div class="fw-col-md-3 fw-col-sm-6">
+									<aside id="text-3" class="widget widget_text">
+										<h2 class="widget-title"><span>FIND US ELSEWHERE</span></h2>			
+										<div class="textwidget" style="left: -12px;position: relative;">
+											<a href="#">
+												<img style="margin-right:10px;" src="/img/social/footer-social-facebook.png">
+											</a>
+											<a href="#">
+												<img style="margin-right:10px;" src="/img/social/footer-social-google.png">
+											</a>
+											<a href="#">
+												<img style="margin-right:10px;" src="/img/social/footer-social-twitter.png">
+											</a>
+											<a href="#">
+												<img style="margin-right:10px;" src="/img/social/footer-social-flickr.png">
+											</a>
+											<a href="#">
+												<img style="margin-right:10px;" src="/img/social/footer-social-vimeo.png">
+											</a>
+											<a href="#">
+												<img style="margin-right:10px;" src="/img/social/footer-social-skype.png">
+											</a>
+										</div>
+									</aside>
+									<aside id="text-2" class="widget widget_text">			
+										<div class="textwidget">©Copyright 2016 
+										Frida Kahlo Community Organization
+										Chicago, Illinois USA
+										</div>
+									</aside>						
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="fw-footer-bar fw-copyright-center">
+				<div class="fw-container">
+				<div class="fw-copyright"></div>
+				</div>
+				</div>
+			</footer>
+			
+		</div>
+		<a class="scroll-to-top anchor icon-class" href="#page"><i class=""></i></a>
+
+		{# JAVASCRIPT #}
+		<script src="/js/jquery-2.2.3.min.js"></script>
+		<script src="/js/jquery.touchSwipe.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/jquery.mmenu.min.all.js"></script>
+		<script src="/js/selectize.min.js"></script>
+		<script src="/js/modernizr.min.js"></script>
+		<script src="/js/jquery.stellar.min.js"></script>
+		<script src="/js/lazysizes.min.js"></script>
+		<script src="/js/jquery.prettyPhoto.js"></script>
+		<script src="/js/general.js"></script>
+		{% block js %}{% endblock %}
+		
+	</body>
+</html>{% endspaceless %}

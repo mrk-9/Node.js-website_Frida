@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for keystone/lib/schemaPlugins/history.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">keystone/lib/schemaPlugins/</a> history.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">11.9% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>5/42</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">11.9% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>5/42</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var keystone = require('../../');
+&nbsp;
+var historyModelSuffix = '_revisions';
+&nbsp;
+<span class="fstat-no" title="function not covered" >function getHistoryModelName (list) {</span>
+<span class="cstat-no" title="statement not covered" >	return list.options.schema.collection + historyModelSuffix;</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function getHistoryModel (list, userModel) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	var collection = getHistoryModelName(list);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	var schema = new keystone.mongoose.Schema({</span>
+		i: { type: keystone.mongoose.Schema.Types.ObjectId, ref: collection },
+		t: { type: Date, index: true, required: true },
+		o: { type: String, index: true, required: true },
+		c: { type: [String], index: true },
+		d: { type: keystone.mongoose.Schema.Types.Mixed, required: true },
+	}, {
+		id: true,
+		versionKey: false,
+	});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	if (userModel) {</span>
+<span class="cstat-no" title="statement not covered" >		schema.add({</span>
+			u: { type: keystone.mongoose.Schema.Types.ObjectId, ref: userModel },
+		});
+	}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	return keystone.mongoose.model(collection, schema, collection);</span>
+&nbsp;
+}
+&nbsp;
+/**
+ * List history option
+ *
+ * When enabled, it tracks changes to each document on save or remove.
+ */
+&nbsp;
+module.exports = <span class="fstat-no" title="function not covered" >function history () {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	var list = this;</span>
+&nbsp;
+	// If model already exists for a '_revisions' in an inherited model, log a warning but skip creating the new model (inherited _revisions model will be used).
+<span class="cstat-no" title="statement not covered" >	var collectionName = getHistoryModelName(list);</span>
+<span class="cstat-no" title="statement not covered" >	if (list.get('inherits')</span>
+		&amp;&amp; collectionName.indexOf(historyModelSuffix, collectionName.length - historyModelSuffix.length) !== -1
+		&amp;&amp; keystone.mongoose.models[collectionName]) {
+<span class="cstat-no" title="statement not covered" >		console.log('List/model already exists for ' + collectionName + '.\nWon\'t re-create, keystone continuing.');</span>
+<span class="cstat-no" title="statement not covered" >		return;</span>
+	}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	var userModel = keystone.get('user model');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	var HistoryModel = list.HistoryModel = getHistoryModel(this, userModel);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	list.schema.add({</span>
+		__rev: Number,
+	});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	list.schema.pre('save', <span class="fstat-no" title="function not covered" >function (next) {</span></span>
+<span class="cstat-no" title="statement not covered" >		this.__rev = (typeof this.__rev === 'number') ? this.__rev + 1 : 1;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		var data = this.toObject();</span>
+<span class="cstat-no" title="statement not covered" >		delete data._id;</span>
+<span class="cstat-no" title="statement not covered" >		delete data.__v;</span>
+<span class="cstat-no" title="statement not covered" >		delete data.__rev;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		var doc = {</span>
+			i: this.id,
+			t: Date.now(),
+			o: this.isNew ? 'c' : 'u',
+			c: [],
+			d: data,
+		};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		for (var path in list.fields) {</span>
+<span class="cstat-no" title="statement not covered" >			if (this.isModified(path)) {</span>
+<span class="cstat-no" title="statement not covered" >				doc.c.push(path);</span>
+			}
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if (list.autokey) {</span>
+<span class="cstat-no" title="statement not covered" >			if (this.isModified(list.autokey.path)) {</span>
+<span class="cstat-no" title="statement not covered" >				doc.c.push(list.autokey.path);</span>
+			}
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if (userModel &amp;&amp; this._req_user) {</span>
+<span class="cstat-no" title="statement not covered" >			doc.u = this._req_user;</span>
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		new HistoryModel(doc).save(next);</span>
+	});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	list.schema.pre('remove', <span class="fstat-no" title="function not covered" >function (next) {</span></span>
+<span class="cstat-no" title="statement not covered" >		var data = this.toObject();</span>
+<span class="cstat-no" title="statement not covered" >		data.__v = undefined;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		var doc = {</span>
+			t: Date.now(),
+			o: 'd',
+			d: data,
+		};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if (userModel &amp;&amp; this._req_user) {</span>
+<span class="cstat-no" title="statement not covered" >			doc.u = this._req_user;</span>
+		}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		new HistoryModel(doc).save(next);</span>
+	});
+&nbsp;
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 24 2016 20:05:17 GMT+1100 (AEDT)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

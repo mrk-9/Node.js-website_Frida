@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for keystone/lib/schemaPlugins/autokey.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">keystone/lib/schemaPlugins/</a> autokey.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">63.79% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>37/58</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">34.88% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>15/43</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">85.71% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">63.79% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>37/58</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var _ = require('lodash');
+var utils = require('keystone-utils');
+&nbsp;
+module.exports = function autokey () {
+&nbsp;
+	var autokey = this.autokey = _.clone(this.get('autokey'));
+	var def = {};
+	var list = this;
+&nbsp;
+	<span class="missing-if-branch" title="if path not taken" >I</span>if (!autokey.from) {
+<span class="cstat-no" title="statement not covered" >		var fromMsg = 'Invalid List Option (autokey) for ' + list.key + ' (from is required)\n';</span>
+<span class="cstat-no" title="statement not covered" >		throw new Error(fromMsg);</span>
+	}
+	<span class="missing-if-branch" title="if path not taken" >I</span>if (!autokey.path) {
+<span class="cstat-no" title="statement not covered" >		var pathMsg = 'Invalid List Option (autokey) for ' + list.key + ' (path is required)\n';</span>
+<span class="cstat-no" title="statement not covered" >		throw new Error(pathMsg);</span>
+	}
+&nbsp;
+	<span class="missing-if-branch" title="else path not taken" >E</span>if (typeof autokey.from === 'string') {
+		autokey.from = autokey.from.split(' ');
+	}
+&nbsp;
+	autokey.from = autokey.from.map(function (i) {
+		i = i.split(':');
+		return { path: i[0], format: i[1] };
+	});
+&nbsp;
+	def[autokey.path] = {
+		type: String,
+		index: true,
+	};
+&nbsp;
+	<span class="missing-if-branch" title="else path not taken" >E</span>if (autokey.unique) {
+		def[autokey.path].index = { unique: true };
+	}
+&nbsp;
+	this.schema.add(def);
+&nbsp;
+	var getUniqueKey = function (doc, src, callback) {
+&nbsp;
+		var q = list.model.find().where(autokey.path, src);
+&nbsp;
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (_.isObject(autokey.unique)) {
+<span class="cstat-no" title="statement not covered" >			_.forEach(autokey.unique, <span class="fstat-no" title="function not covered" >function (k, v) {</span></span>
+<span class="cstat-no" title="statement not covered" >				if (_.isString(v) &amp;&amp; v.charAt(0) === ':') {</span>
+<span class="cstat-no" title="statement not covered" >					q.where(k, doc.get(v.substr(1)));</span>
+				} else {
+<span class="cstat-no" title="statement not covered" >					q.where(k, v);</span>
+				}
+			});
+		}
+&nbsp;
+		q.exec(function (err, results) {
+			<span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >				callback(err);</span>
+			// deliberate use of implicit type coercion with == because doc.id may need to become a String
+			} else <span class="missing-if-branch" title="if path not taken" >I</span>if (results.length &amp;&amp; (<span class="branch-1 cbranch-no" title="branch not covered" >results.length &gt; 1 </span>|| <span class="branch-2 cbranch-no" title="branch not covered" >results[0].id != doc.id)</span>) { // eslint-disable-line eqeqeq
+<span class="cstat-no" title="statement not covered" >				var inc = src.match(/^(.+)\-(\d+)$/);</span>
+<span class="cstat-no" title="statement not covered" >				if (inc &amp;&amp; inc.length === 3) {</span>
+<span class="cstat-no" title="statement not covered" >					src = inc[1];</span>
+<span class="cstat-no" title="statement not covered" >					inc = '-' + ((inc[2] * 1) + 1);</span>
+				} else {
+<span class="cstat-no" title="statement not covered" >					inc = '-1';</span>
+				}
+<span class="cstat-no" title="statement not covered" >				return getUniqueKey(doc, src + inc, callback);</span>
+			} else {
+				doc.set(autokey.path, src);
+				return callback();
+			}
+		});
+	};
+&nbsp;
+	this.schema.pre('save', function (next) {
+&nbsp;
+		var modified = false;
+		var values = [];
+&nbsp;
+		autokey.from.forEach(function (ops) {
+			<span class="missing-if-branch" title="else path not taken" >E</span>if (list.fields[ops.path]) {
+				values.push(list.fields[ops.path].format(this, ops.format));
+				<span class="missing-if-branch" title="else path not taken" >E</span>if (list.fields[ops.path].isModified(this)) {
+					modified = true;
+				}
+			} else {
+<span class="cstat-no" title="statement not covered" >				values.push(this.get(ops.path));</span>
+				// virtual paths are always assumed to have changed, except 'id'
+<span class="cstat-no" title="statement not covered" >				if (ops.path !== 'id' &amp;&amp; list.schema.pathType(ops.path) === 'virtual' || this.isModified(ops.path)) {</span>
+<span class="cstat-no" title="statement not covered" >					modified = true;</span>
+				}
+			}
+		}, this);
+&nbsp;
+		// if has a value and is unmodified or fixed, don't update it
+		<span class="missing-if-branch" title="if path not taken" >I</span>if ((!modified || autokey.fixed) &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >this.get(autokey.path))</span> {
+<span class="cstat-no" title="statement not covered" >			return next();</span>
+		}
+		var newKey = utils.slug(values.join(' '), null, { locale: autokey.locale }) || <span class="branch-1 cbranch-no" title="branch not covered" >this.id;</span>
+		<span class="missing-if-branch" title="else path not taken" >E</span>if (autokey.unique) {
+			return getUniqueKey(this, newKey, next);
+		} else {
+<span class="cstat-no" title="statement not covered" >			this.set(autokey.path, newKey);</span>
+<span class="cstat-no" title="statement not covered" >			return next();</span>
+		}
+&nbsp;
+	});
+&nbsp;
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 24 2016 20:05:17 GMT+1100 (AEDT)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

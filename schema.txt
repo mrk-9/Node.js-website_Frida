@@ -1,0 +1,105 @@
+Next Assignment:
+
+Static Pages
+
+Homepage:
+
+Slide {
+
+	standard crud
+	
+}
+
+calendar: pull in program times
+
+blog posts one of last six
+
+newsletter signup block 
+
+Frida {
+
+	Approach {
+		Page Title
+		Featured image
+		section 1{
+			title
+			description
+			statistics quote
+		}
+		section 2{
+			title
+			description
+		}
+		featured video
+		section 3{
+			title
+			description
+		}
+		stats{
+			title 1-4{
+				text
+				value
+			}
+		}
+		section 4{
+			title
+			description
+		}
+		button{
+			title
+			url
+		}
+	}
+	
+	Our Team{
+
+		page title
+		button{
+			text
+			url
+		}
+		page image
+		section 1{
+			title
+			descripton
+			qoute
+		}
+		users: relation, many: true
+		section 2{
+			title
+			description
+			button{
+				text
+				url
+			}
+		}
+		
+	}	
+}
+
+
+
+
+User {
+	profile picture
+	bio
+	contact email
+	contact phone
+}
+
+Get Involved{
+	Page title
+	button{
+		text
+		url
+	}
+	section 1-2{
+		featured image
+		title
+		description
+		button{
+			text
+			url
+		}
+	}
+}

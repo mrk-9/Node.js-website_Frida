@@ -1,0 +1,9 @@
+<td class="view-message  inbox-small-cells" style="width:55px">{% if conversation.isSchedulingThread %}<span class="label label-default">Support</span>{%endif%}</td>
+<td class="view-message  inbox-small-cells" style="width:30px">{% if conversation.unseen %}<span class="label label-danger">NEW</span>{%endif%}</td>
+{% if conversation.isSchedulingThread %}
+<td class="view-message dont-show">Admin, {% for u in conversation.users %}{% if u.role != 'Admin' %}{{u.name.first}}{%endif%}{%endfor%}</td>
+{% else %}
+<td class="view-message  dont-show">{% for u in conversation.users %}{{u.name.first}}{% if loop.last == false %}, {%endif%}{%endfor%}</td>
+{% endif %}
+<td class="view-message ">{{conversation.last.content.brief}}</td>
+<td class="view-message  text-right">{{ conversation.lastTimestamp }}</td>

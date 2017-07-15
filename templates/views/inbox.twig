@@ -1,0 +1,135 @@
+{% extends '../layouts/admin.twig' %}
+{% block content %}
+<div class="inbox-body">
+	<div class="mail-option">
+		<div class="chk-all">
+			 <input class="mail-checkbox mail-group-checkbox checkall" type="checkbox">
+			 <div class="btn-group">
+					 <a data-toggle="dropdown" href="#" class="btn mini all" aria-expanded="false">
+								With Selected
+							 <i class="fa fa-angle-down"></i>
+					 </a>
+					 <ul class="dropdown-menu with-selected">
+						 <li><a href="#" data-action="read"><i class="fa fa-pencil"></i> Mark as Read</a></li>
+						 <li><a href="#" data-action="delete"><i class="fa fa-trash-o"></i> Delete</a></li>
+					 </ul>
+			 </div>
+		</div>
+
+		<div class="btn-group">
+			<a href="/messaging/compose"class="btn btn-default btn-create btn-create-item create2" style="height:33.5px">
+				<span class="ion-plus-round mr-5"></span> <span>Compose Message</span>
+			</a>
+		</div>
+	</div>
+	<table class="table table-inbox table-hover">
+		<tbody id="inbox">
+		{% for conversation in conversations %}
+		<tr {% if conversation.unseen %}class="unread"{%endif%} data-href="/messaging/threads/{{conversation._id}}" data-id="{{conversation._id}}">
+			<td class="inbox-small-cells" style="width:10px">
+				<input class="mail-checkbox" type="checkbox">
+			</td>
+			<td class="view-message  inbox-small-cells" style="width:55px">{% if conversation.isSchedulingThread %}<span class="label label-default">Support</span>{%endif%}</td>
+			<td class="view-message  inbox-small-cells" style="width:30px">{% if conversation.unseen %}<span class="label label-danger">NEW</span>{%endif%}</td>
+			{% if conversation.isSchedulingThread %}
+			<td class="view-message dont-show">
+				Admin, {% for u in conversation.users %}{% if u.role != 'Admin' %}{{u.name.first}}{%endif%}{%endfor%}
+			</td>
+			{% else %}
+			<td class="view-message  dont-show">{% for u in conversation.users %}{{u.name.first}}{% if loop.last == false %}, {%endif%}{%endfor%}</td>
+			{% endif %}
+			<td class="view-message ">{{conversation.last.content.brief}}</td>
+			<td class="view-message  text-right">{{ conversation.lastTimestamp }}</td>
+		</tr>
+		{% else %}
+		<tr>
+			<td colspan="100%" class="text-center"><h3><em>No Conversations.</em></h3></td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}
+{% block js %}
+<script src="/js/socket.io-1.4.5.js"></script>
+<script>
+
+var socket = io('http://frida.hogs.xyz');
+
+socket.on('connect', function(){
+
+	socket.emit('authentication',{u_id: '{{user._id}}'});
+	
+	socket.on('authenticated',function(){
+	
+		console.log('authenticated with socketio');
+		
+		//loop the conversations, and send conversation update listeners for all threads
+		var convos = [];
+		var rows = $('#inbox tr[data-id]');
+		
+		for(var i=0;i<rows.length;i++){
+			convos.push('inbox_'+rows.eq(i).attr('data-id'));
+		}
+		
+		socket.on('inbox_update',function(data){
+		
+			var id = data.thread_id;
+			var html = data.html;
+			var tr = $('#inbox tr[data-id="'+id+'"]').addClass('unread');
+			
+			var tr2 = tr.html( $("<div />").append(tr.find('td').eq(0).clone()).html() + html).clone();
+			tr.remove();
+			
+			$('#inbox').prepend(tr);
+			
+		});
+		
+		socket.emit('join',convos);
+		
+	});
+});
+
+
+$(function(){
+
+	$(document).on('click','.view-message',function(e){
+		e.preventDefault(),
+		window.location = $(this).parent().attr('data-href');
+		e.stopPropagation();
+	});
+	
+	$(document).on('change','.checkall',function(e){
+	
+		$('#inbox tr td:first-child :checkbox').prop('checked', $(this).prop('checked') );
+		
+	});
+	
+	$(document).on('click','.with-selected a',function(e){
+		e.preventDefault();
+		var x = $('#inbox tr');
+		var items = [];
+		for(var i=0;i<x.length;i++){
+			if(x.eq(i).find('td:first-child :checkbox').prop('checked') != false){
+				items.push(x.eq(i).attr('data-id'));
+			}
+		}
+		var action = $(this).attr('data-action');
+		socket.emit('inbox_action',{
+			action: action,
+			items : items
+		});
+		switch(action){
+			case 'read':
+				x.each(function(){ $(this).removeClass('unread').find('td').eq(1).html('&nbsp;'); });
+			break;
+			case 'delete':
+				x.remove();
+			break;
+		}
+		e.stopPropagation();
+	});
+	
+});
+</script>
+{% endblock %}

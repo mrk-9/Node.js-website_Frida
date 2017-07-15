@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for keystone/lib/list/expandColumns.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">keystone/lib/list/</a> expandColumns.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.66% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>3/53</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/50</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.66% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>3/53</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var utils = require('keystone-utils');
+&nbsp;
+/**
+ * Expands a comma-separated string or array of columns into valid column objects.
+ *
+ * Columns can be:
+ *    - A Field, in the format "field|width"
+ *    - A Field in a single related List, in the format "list:field|width"
+ *    - Any valid path in the Schema, in the format "path|width"
+ *
+ * The width part is optional, and can be in the format "n%" or "npx".
+ *
+ * The path __name__ is automatically mapped to the namePath of the List.
+ *
+ * The field or path for the name of the item (defaults to ID if not set or detected)
+ * is automatically prepended if not explicitly included.
+ */
+<span class="fstat-no" title="function not covered" >function expandColumns (cols) {</span>
+<span class="cstat-no" title="statement not covered" >	if (typeof cols === 'string') {</span>
+<span class="cstat-no" title="statement not covered" >		cols = cols.split(',');</span>
+	}
+<span class="cstat-no" title="statement not covered" >	if (!Array.isArray(cols)) {</span>
+<span class="cstat-no" title="statement not covered" >		throw new Error('List.expandColumns: cols must be an array.');</span>
+	}
+<span class="cstat-no" title="statement not covered" >	var list = this;</span>
+<span class="cstat-no" title="statement not covered" >	var expanded = [];</span>
+<span class="cstat-no" title="statement not covered" >	var nameCol = false;</span>
+<span class="cstat-no" title="statement not covered" >	var getCol = <span class="fstat-no" title="function not covered" >function (def) {</span></span>
+<span class="cstat-no" title="statement not covered" >		if (def.path === '__name__') {</span>
+<span class="cstat-no" title="statement not covered" >			def.path = list.namePath;</span>
+		}
+<span class="cstat-no" title="statement not covered" >		var field = list.fields[def.path];</span>
+<span class="cstat-no" title="statement not covered" >		var col = null;</span>
+<span class="cstat-no" title="statement not covered" >		if (field) {</span>
+<span class="cstat-no" title="statement not covered" >			col = {</span>
+				field: field,
+				path: field.path,
+				type: field.type,
+				label: def.label || field.label,
+			};
+<span class="cstat-no" title="statement not covered" >			if (col.type === 'relationship') {</span>
+<span class="cstat-no" title="statement not covered" >				col.refList = col.field.refList;</span>
+<span class="cstat-no" title="statement not covered" >				if (col.refList) {</span>
+<span class="cstat-no" title="statement not covered" >					col.refPath = def.subpath || col.refList.namePath;</span>
+<span class="cstat-no" title="statement not covered" >					col.subField = col.refList.fields[col.refPath];</span>
+<span class="cstat-no" title="statement not covered" >					col.populate = { path: col.field.path, subpath: col.refPath };</span>
+				}
+<span class="cstat-no" title="statement not covered" >				if (!def.label &amp;&amp; def.subpath) {</span>
+<span class="cstat-no" title="statement not covered" >					col.label = field.label + ': ' + (col.subField ? col.subField.label : utils.keyToLabel(def.subpath));</span>
+				}
+			}
+		} else <span class="cstat-no" title="statement not covered" >if (list.model.schema.paths[def.path] || list.model.schema.virtuals[def.path]) {</span>
+			// column refers to a path in the schema
+			// TODO: this needs to handle sophisticated types, including arrays, nested Schemas, and mixed types
+<span class="cstat-no" title="statement not covered" >			col = {</span>
+				path: def.path,
+				label: def.label || utils.keyToLabel(def.path),
+			};
+		}
+<span class="cstat-no" title="statement not covered" >		if (col) {</span>
+<span class="cstat-no" title="statement not covered" >			col.width = def.width;</span>
+<span class="cstat-no" title="statement not covered" >			if (col.path === list.namePath) {</span>
+<span class="cstat-no" title="statement not covered" >				col.isName = true;</span>
+<span class="cstat-no" title="statement not covered" >				nameCol = col;</span>
+			}
+<span class="cstat-no" title="statement not covered" >			if (field &amp;&amp; field.col) {</span>
+<span class="cstat-no" title="statement not covered" >				_.extend(col, field.col);</span>
+			}
+		}
+<span class="cstat-no" title="statement not covered" >		return col;</span>
+	};
+<span class="cstat-no" title="statement not covered" >	for (var i = 0; i &lt; cols.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >		var def = {};</span>
+<span class="cstat-no" title="statement not covered" >		if (typeof cols[i] === 'string') {</span>
+<span class="cstat-no" title="statement not covered" >			var parts = cols[i].trim().split('|');</span>
+<span class="cstat-no" title="statement not covered" >			def.width = parts[1] || false;</span>
+<span class="cstat-no" title="statement not covered" >			parts = parts[0].split(':');</span>
+<span class="cstat-no" title="statement not covered" >			def.path = parts[0];</span>
+<span class="cstat-no" title="statement not covered" >			def.subpath = parts[1];</span>
+		}
+<span class="cstat-no" title="statement not covered" >		if (!utils.isObject(def) || !def.path) {</span>
+<span class="cstat-no" title="statement not covered" >			throw new Error('List.expandColumns: column definition must contain a path.');</span>
+		}
+<span class="cstat-no" title="statement not covered" >		var col = getCol(def);</span>
+<span class="cstat-no" title="statement not covered" >		if (col) {</span>
+<span class="cstat-no" title="statement not covered" >			expanded.push(col);</span>
+		}
+	}
+<span class="cstat-no" title="statement not covered" >	if (!nameCol) {</span>
+<span class="cstat-no" title="statement not covered" >		nameCol = getCol({ path: list.namePath });</span>
+<span class="cstat-no" title="statement not covered" >		if (nameCol) {</span>
+<span class="cstat-no" title="statement not covered" >			expanded.unshift(nameCol);</span>
+		}
+	}
+<span class="cstat-no" title="statement not covered" >	return expanded;</span>
+}
+&nbsp;
+module.exports = expandColumns;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 24 2016 20:05:17 GMT+1100 (AEDT)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

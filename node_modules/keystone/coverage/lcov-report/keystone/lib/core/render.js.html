@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for keystone/lib/core/render.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">keystone/lib/core/</a> render.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">21.88% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>7/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">21.88% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>7/32</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var _ = require('lodash');
+var cloudinary = require('cloudinary');
+var fs = require('fs');
+var jade = require('jade');
+&nbsp;
+/**
+ * Renders a Keystone View
+ *
+ * @api private
+ */
+&nbsp;
+var templateCache = {};
+&nbsp;
+<span class="fstat-no" title="function not covered" >function render (req, res, view, ext) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	var keystone = this;</span>
+<span class="cstat-no" title="statement not covered" >	var templatePath = __dirname + '/../../admin/server/templates/' + view + '.jade';</span>
+<span class="cstat-no" title="statement not covered" >	var jadeOptions = {</span>
+		filename: templatePath,
+		pretty: keystone.get('env') !== 'production',
+	};
+<span class="cstat-no" title="statement not covered" >	var compileTemplate = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >		return jade.compile(fs.readFileSync(templatePath, 'utf8'), jadeOptions);</span>
+	};
+<span class="cstat-no" title="statement not covered" >	var template = templateCache[view] || (templateCache[view] = compileTemplate());</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	if (!res.req.flash) {</span>
+<span class="cstat-no" title="statement not covered" >		console.error('\nKeystoneJS Runtime Error:\n\napp must have flash middleware installed. Try adding "connect-flash" to your express instance.\n');</span>
+<span class="cstat-no" title="statement not covered" >		process.exit(1);</span>
+	}
+<span class="cstat-no" title="statement not covered" >	var flashMessages = {</span>
+		info: res.req.flash('info'),
+		success: res.req.flash('success'),
+		warning: res.req.flash('warning'),
+		error: res.req.flash('error'),
+		hilight: res.req.flash('hilight'),
+	};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	var lists = {};</span>
+<span class="cstat-no" title="statement not covered" >	_.forEach(keystone.lists, <span class="fstat-no" title="function not covered" >function (list, key) {</span></span>
+<span class="cstat-no" title="statement not covered" >		lists[key] = list.getOptions();</span>
+	});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	var locals = {</span>
+		_: _,
+		env: keystone.get('env'),
+		brand: keystone.get('brand'),
+		appversion: keystone.get('appversion'),
+		nav: keystone.nav,
+		messages: _.some(flashMessages, <span class="fstat-no" title="function not covered" >function (msgs) {</span> <span class="cstat-no" title="statement not covered" >return msgs.length; </span>}) ? flashMessages : false,
+		lists: lists,
+		userModel: keystone.get('user model'),
+		user: req.user,
+		title: 'Keystone',
+		signout: keystone.get('signout url'),
+		adminPath: '/' + keystone.get('admin path'),
+		backUrl: keystone.get('back url') || '/',
+		section: {},
+		version: keystone.version,
+		csrf_header_key: keystone.security.csrf.CSRF_HEADER_KEY,
+		csrf_token_key: keystone.security.csrf.TOKEN_KEY,
+		csrf_token_value: keystone.security.csrf.getToken(req, res),
+		csrf_query: '&amp;' + keystone.security.csrf.TOKEN_KEY + '=' + keystone.security.csrf.getToken(req, res),
+		ga: {
+			property: keystone.get('ga property'),
+			domain: keystone.get('ga domain'),
+		},
+		wysiwygOptions: {
+			enableImages: keystone.get('wysiwyg images') ? true : false,
+			enableCloudinaryUploads: keystone.get('wysiwyg cloudinary images') ? true : false,
+			enableS3Uploads: keystone.get('wysiwyg s3 images') ? true : false,
+			additionalButtons: keystone.get('wysiwyg additional buttons') || '',
+			additionalPlugins: keystone.get('wysiwyg additional plugins') || '',
+			additionalOptions: keystone.get('wysiwyg additional options') || {},
+			overrideToolbar: keystone.get('wysiwyg override toolbar'),
+			skin: keystone.get('wysiwyg skin') || 'keystone',
+			menubar: keystone.get('wysiwyg menubar'),
+			importcss: keystone.get('wysiwyg importcss') || '',
+		},
+	};
+&nbsp;
+	// view-specific extensions to the local scope
+<span class="cstat-no" title="statement not covered" >	_.extend(locals, ext);</span>
+&nbsp;
+	// add cloudinary locals if configured
+<span class="cstat-no" title="statement not covered" >	if (keystone.get('cloudinary config')) {</span>
+<span class="cstat-no" title="statement not covered" >		try {</span>
+<span class="cstat-no" title="statement not covered" >			var cloudinaryUpload = cloudinary.uploader.direct_upload();</span>
+<span class="cstat-no" title="statement not covered" >			locals.cloudinary = {</span>
+				cloud_name: keystone.get('cloudinary config').cloud_name,
+				api_key: keystone.get('cloudinary config').api_key,
+				timestamp: cloudinaryUpload.hidden_fields.timestamp,
+				signature: cloudinaryUpload.hidden_fields.signature,
+				prefix: keystone.get('cloudinary prefix') || '',
+				folders: keystone.get('cloudinary folders'),
+				uploader: cloudinary.uploader,
+			};
+<span class="cstat-no" title="statement not covered" >			locals.cloudinary_js_config = cloudinary.cloudinary_js_config();</span>
+		} catch (e) {
+<span class="cstat-no" title="statement not covered" >			if (e === 'Must supply api_key') {</span>
+<span class="cstat-no" title="statement not covered" >				throw new Error('Invalid Cloudinary Config Provided\n\n'</span>
+					+ 'See http://keystonejs.com/docs/configuration/#services-cloudinary for more information.');
+			} else {
+<span class="cstat-no" title="statement not covered" >				throw e;</span>
+			}
+		}
+	}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	res.send(template(locals));</span>
+}
+&nbsp;
+module.exports = render;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 24 2016 20:05:17 GMT+1100 (AEDT)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

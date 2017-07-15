@@ -1,0 +1,119 @@
+{% extends '../layouts/admin.twig' %}
+{% block content %}
+<div>
+	{% if success %}
+	{{ FlashMessages.renderMessage('Message Sent!','success') }}
+	{% endif %}
+	{% if error is defined %}
+	{{ FlashMessages.renderMessage(error,'error') }}
+	{% endif %}
+</div>
+<form method="post" enctype="multipart/form-data">
+	<input name="image_upload" class="field-upload" type="file" id="file">
+	<input type="hidden" name="action" value="update" />
+	<div class="field field-type-html field-has-label">
+		<label class="field-label">Name</label>
+		<div class="field-ui field-size-large">
+			<div class="col-xs-6" style="padding-left:0;">
+				<input type="text" class="form-control" name="name.first" value="{{user.name.first}}">
+			</div>
+			<div class="col-xs-6" style="padding-right:0;">
+				<input type="text" class="form-control" name="name.last" value="{{user.name.last}}">
+			</div>
+		</div>
+	</div>
+	<div class="field field-type-html field-has-label">
+		<label class="field-label">Email</label>
+		<div class="field-ui field-size-large">
+			<div style="">
+				<input type="text" class="form-control" name="email" value="{{user.email}}">
+			</div>
+		</div>
+	</div>
+	<div class="field field-type-cloudinaryimage">
+		<label class="field-label" >Profile Picture</label>
+		<input name="image_action" class="field-action" type="hidden">
+		<div class="field-ui has-image">
+			<div class="image-container">
+				<div class="image-preview upload-pending">
+					<div class="img-thumbnail">
+						<img class="img-load" style="height:90px;" src="{{user.image.secure_url|default('/img/admins.png')}}">
+					</div>
+				</div>
+				<div class="image-toolbar" >
+					<div class="pull-left" >
+						<button type="button" class="btn btn-default btn-upload-image" id="imagechange" >
+							<span>Change</span><span> Image</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="field field-type-html field-has-label">
+		<label class="field-label">Bio</label>
+		<div class="field-ui field-size-large">
+			<div class="">
+				<textarea class="form-control" rows="3" id="message" name="bio">{{user.bio}}</textarea>
+			</div>
+		</div>
+  </div>
+	
+	<div class="field field-type-html field-has-label">
+		<label class="field-label">Title</label>
+		<div class="field-ui field-size-large">
+			<div style="">
+				<input type="text" class="form-control" name="title" value="{{user.title}}">
+			</div>
+		</div>
+	</div>
+	
+	<div class="field field-type-html field-has-label">
+		<label class="field-label">Contact Email</label>
+		<div class="field-ui field-size-large">
+			<div style="">
+				<input type="text" class="form-control" name="contact.email" value="{{user.contact.email}}">
+			</div>
+		</div>
+	</div>
+	
+	<div class="field field-type-html field-has-label">
+		<label class="field-label">Contact Phone</label>
+		<div class="field-ui field-size-large">
+			<div style="">
+				<input type="text" class="form-control" name="contact.phone" value="{{user.contact.phone}}">
+			</div>
+		</div>
+	</div>
+	
+	<div class="field field-type-html field-has-label">
+		<label class="field-label">Change Password</label>
+		<div class="field-ui field-size-large">
+			<div class="col-xs-6" style="padding-left:0;">
+				<input type="password" class="form-control" name="password" >
+			</div>
+			<div class="col-xs-6" style="padding-right:0;">
+				<input type="password" class="form-control" name="password_confirm">
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="field field-type-html field-has-label">
+		<label class="field-label">&nbsp;</label>
+		<div class="field-ui field-size-large">
+			<button type="submit" class="btn btn-primary btn-block">Save</button>
+		</div>
+	</div>
+</form>
+{% endblock %}
+{% block js %}
+<script>
+
+$(function(){
+
+$('#imagechange').click(function(){ $('#file').click(); });
+	
+});
+</script>
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends "../layouts/default.twig" %}
+
+{% block css %}
+<link rel='stylesheet' href="/css/program.css" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<div class="fw-page-builder-content">
+		<section id="section-5731eaa72b0ae" class=" fw-main-row-custom fw-main-row-top fw-section-no-padding  auto  " style="   ">
+				<div class="fw-container">
+						<div class="fw-row">
+								<div id="column-86a386a67c05c08722e5455cc84f9999" class="fw-col-sm-12 tf-sh-86a386a67c05c08722e5455cc84f9999">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-divider-space  fw-custom-space  clearfix" style="height:100px;"></div>
+										</div>
+								</div>
+						</div>
+
+						<div class="fw-row">
+								<div id="column-cd981a19a5cb59eb6da3b5ba2269b163" class="fw-col-sm-8 tf-sh-cd981a19a5cb59eb6da3b5ba2269b163  fw-animated-element fw-col-no-padding" data-animation-type="fadeInLeft" data-animation-delay="300">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-heading fw-heading-left  tf-sh-c81d7edeb2cd77f9ab924d7e69751a67">
+														<h1 class="fw-special-title">OUR <span style="font-weight:900;">PROGRAMS</span></h1>
+
+
+												</div>
+												<div class="fw-text-box tf-sh-b64347b6b97d76f2928def54d7aab4be ">
+														<div class="fw-text-inner">
+																<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar eleentum vestibulum.</p>
+														</div>
+												</div>
+										</div>
+								</div>
+								<div id="column-fea2fc208fb4cfdff7fb6ce0ce063333" class="fw-col-sm-4 tf-sh-fea2fc208fb4cfdff7fb6ce0ce063333  fw-animated-element" data-animation-type="fadeInRight" data-animation-delay="500">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-divider-space  fw-custom-space  clearfix" style="height:10px;"></div>
+												<a href="/volunteer/register" target="_self" class="fw-btn tf-sh-cd9d96a0089052d148ac18e330d8a2c1 fw-btn-full fw-btn-lg   fw-btn-2" style="">
+														<span>Join Us</span>
+												</a>
+										</div>
+								</div>
+						</div>
+
+						<div class="fw-row">
+								<div id="column-0b421b8a55a495382c55a15850b1b1cb" class="fw-col-sm-12 tf-sh-0b421b8a55a495382c55a15850b1b1cb">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-divider-space  fw-custom-space  clearfix" style="height:75px;"></div>
+										</div>
+								</div>
+						</div>
+
+						{% for row in programs|batch(2) %}
+						<div class="fw-row">
+								{% for program in row %}
+								<div id="column-b68b54db8e2e9d097952a9a8889e22de" class="fw-col-sm-8 fw-col-md-3 tf-sh-b68b54db8e2e9d097952a9a8889e22de  fw-column-height-custom fw-animated-element fw-col-no-padding" data-animation-type="fadeInUp" data-animation-delay="700" style="height: 326px;">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-heading fw-heading-center  tf-sh-7834a6648e1080ce59e76d47b0089b3b">
+														<h4 class="fw-special-title">{{program.title}}</h4>
+
+
+												</div>
+												<div class="fw-divider tf-sh-3b74bc71ebf8f23c2fe8a9b080825011  fw-divider-align-center fw-line-solid fw-divider-line   fw_theme_border_only_color_2" style="width:96px; padding-top:0px; margin-bottom:15px; "></div>
+												<div class="fw-text-box tf-sh-0834636544770d1f4cfa471d363bb8ac ">
+														<div class="fw-text-inner">
+																<p style="text-align: center;">{{program.content.brief}}</p>
+														</div>
+												</div>
+												<div class="fw-divider-space  fw-custom-space  clearfix" style="height:27px;"></div>
+												<div class="text-center">
+														<a href="/programs/view/{{program.slug}}" target="_self" class="fw-btn tf-sh-e063bb1d6c761ba79b55f6fe533439f4  fw-btn-sm   fw-btn-2" style="">
+																<span>More details</span>
+														</a>
+												</div>
+										</div>
+								</div>
+								<div id="column-0d9d29e10bfad00421294c0dcefce86c" class="fw-col-sm-4 fw-col-md-3 fw-mobile-hide-element tf-sh-0d9d29e10bfad00421294c0dcefce86c  fw-column-height-custom fw-animated-element fw-col-no-padding" data-animation-type="fadeInUp" data-animation-delay="700" style="height: 326px;">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-block-image-parent  fw-block-image-left" style="width: 260px; ">
+														<span class="fw-block-image-child fw-ratio-3-4 fw-ratio-container">
+														<noscript>
+														<img itemprop="image" src="{{program.featuredImage.secure_url}}"  alt="healing-through-art" data-maxdpr="1.7" width="260" class="lazyload" />
+														</noscript>
+														<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sizes="auto" data-srcset="{{program.featuredImage.secure_url}} 1920w"   alt="healing-through-art" data-maxdpr="1.7" width="260" class="lazyload" />			</span>
+												</div>
+										</div>
+								</div>
+								{% endfor %}
+						</div>
+
+						<div class="fw-row">
+								<div id="column-d93e2519f5a443c63257e300a57935a1" class="fw-col-sm-12 tf-sh-d93e2519f5a443c63257e300a57935a1">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-divider-space  fw-custom-space  clearfix" style="height:20px;"></div>
+										</div>
+								</div>
+						</div>
+						{% endfor %}
+
+				</div>
+		</section>
+</div>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

@@ -1,0 +1,95 @@
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width"/>
+  <title>{{title|default('Frida Kahlo Admin')}}</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="/keystone/styles/keystone.min.css"/>
+	<link type="text/css" rel="stylesheet" href="/plugins/selectize/selectize.bootstrap3.css" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+	{% block css %}{% endblock %}
+	{% block head %}{% endblock %}
+</head>
+<body>
+	{# HEADER #}
+	<div id="wrap">
+		<nav role="navigation" id="header" class="navbar navbar-default navbar-static-top">
+			<div class="container"><a class="navbar-backtobrand-trigger hidden-xs" href="{{backUrl}}"><span class="ion-arrow-left-c"></span></a>
+				<div class="navbar-backtobrand-message">Back to the {{brand}} website</div>
+				<div class="navbar-header">
+				<button type="button" data-toggle="collapse" data-target=".navbar-headernav-collapse" class="navbar-toggle"><span class="sr-only">Toggle section navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/keystone" class="navbar-brand">{{brand}}</a>
+				</div>
+				<div class="collapse navbar-collapse navbar-headernav-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="/schedule" class="has-icon" data-toggle="tooltip" data-placement="bottom" title="Scheduling">
+								<i class="material-icons md-24 md-top-bar">today</i>
+							</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="/messaging/inbox" class="has-icon" data-toggle="tooltip" data-placement="bottom" title="Inbox">
+								{% if newMsgCount > 0 %}
+									<i class="material-icons md-24 md-dark md-inactive md-top-bar">chat</i>
+									<span class="label label-pill label-danger">{{newMsgCount}}</span>
+								{% else %}
+									<i class="material-icons md-24 md-top-bar">chat</i>
+								{% endif %}
+							</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="/profile" class="has-icon" data-toggle="tooltip" data-placement="bottom" title="Profile">
+								<i class="material-icons md-24 md-top-bar">account_circle</i>
+							</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a class="signout has-icon" href="{{signout|default('/keystone/signout')}}" data-toggle="tooltip" data-placement="bottom" title="Sign Out">
+								<i class="material-icons md-top-bar" style="top:-3px">exit_to_app</i>
+							</a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav">
+						{% if user.isAdmin %}
+						{% for navSection in nav.sections %}
+							{% if navSection.lists[0].external %}
+									{% set path = navSection.lists[0].path %}
+							{% else %}
+									{% set path = '/keystone/' ~ navSection.lists[0].path %}
+							{% endif %}
+							<li {% if section.key == navSection.key %}class="active"{%endif%}>
+								<a href="{{path}}">{{navSection.label}}</a>
+							</li> 
+						{% endfor %}
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div id="body">
+			<div class="container">
+				{% block content %}{% endblock %}
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="container">
+			<p>
+				{{brand}} 
+				Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a> version {{version}}.
+			</p>
+		</div>
+	</div>
+	<script src="/keystone/js/lib/underscore/underscore-1.5.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="/keystone/js/lib/async/async.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="/keystone/js/lib/moment/moment-1.7.2.min.js"></script>
+	<script src="/plugins/selectize/selectize.min.js"></script>
+	<script src="/keystone/js/lib/tinymce/tinymce.min.js"></script>
+	<script>
+	$(function(){ $('[data-toggle="tooltip"]').tooltip(); });
+	</script>
+	{% block js %}{% endblock %}
+</body>

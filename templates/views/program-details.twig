@@ -1,0 +1,166 @@
+{% extends '../layouts/default.twig' %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/css/program-details.css" />
+{% endblock %}
+
+{% block content %}
+<div class="no-header-image"></div>
+<section class="fw-main-row">
+	<div class="fw-container">
+		<div class="fw-row">
+			<!--Content Area-->
+			<div class="fw-col-sm-12">
+				<div class="fw-col-inner">
+					<div class="fw-portfolio-title">
+					</div>
+					<div class="fw-page-builder-content">
+						<section id="section-5739f6645a594" class=" fw-main-row-custom fw-main-row-top fw-section-no-padding  auto  " style="   ">
+							<div class="fw-container">
+								<div class="fw-row">
+									<div id="column-cd981a19a5cb59eb6da3b5ba2269b163" class="fw-col-sm-8 tf-sh-cd981a19a5cb59eb6da3b5ba2269b163  fw-animated-element" data-animation-type="fadeInLeft" data-animation-delay="300">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+											<div class="fw-heading fw-heading-left  tf-sh-c81d7edeb2cd77f9ab924d7e69751a67">
+												{% set splitT = program.title|split(' ') %}
+												<h1 class="fw-special-title">
+													{% for word in splitT %}
+														{% if loop.index0 % 2 == 0 %}{{word}}{% else %}<span style="font-weight:100">{{word}}</span>{%endif%}
+													{% endfor %}
+											</div>
+										</div>
+									</div>
+									<div id="column-fea2fc208fb4cfdff7fb6ce0ce063333" class="fw-col-sm-4 tf-sh-fea2fc208fb4cfdff7fb6ce0ce063333  fw-animated-element fw-col-no-padding" data-animation-type="fadeInRight" data-animation-delay="500">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+											<a href="/volunteer/register" target="_self" class="fw-btn tf-sh-cd9d96a0089052d148ac18e330d8a2c1 fw-btn-full fw-btn-lg   fw-btn-2" style="">
+												<span>Join Us</span>
+											</a>
+										</div>
+									</div>
+								</div>
+
+								<div class="fw-row">
+									<div id="column-44e517bfd8a648a4c43056ca438e7963" class="fw-col-sm-12 fw-mobile-hide-element tf-sh-44e517bfd8a648a4c43056ca438e7963">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+											<div class="fw-divider-space  fw-custom-space  clearfix" style="height:40px;"></div>
+										</div>
+									</div>
+								</div>
+
+								<div class="fw-row">
+									<div id="column-0ab07b9f3d15ab42165b50539bbadb16" class="fw-col-sm-6 fw-col-md-8 tf-sh-0ab07b9f3d15ab42165b50539bbadb16 project-slider fw-animated-element" data-animation-type="fadeInUp" data-animation-delay="700">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+
+											<div class="fw-wrap-fade-slider tf-sh-354538546225b1892def9de9657fb165">
+												<!-- Loading Spinner -->
+												<div class="spinner">
+													<div class="wBall" id="wBall_1">
+														<div class="wInnerBall">
+														</div>
+													</div>
+													<div class="wBall" id="wBall_2">
+														<div class="wInnerBall">
+														</div>
+													</div>
+													<div class="wBall" id="wBall_3">
+														<div class="wInnerBall">
+														</div>
+													</div>
+													<div class="wBall" id="wBall_4">
+														<div class="wInnerBall">
+														</div>
+													</div>
+													<div class="wBall" id="wBall_5">
+														<div class="wInnerBall">
+														</div>
+													</div>
+												</div>
+												<!--/ Loading Spinner -->
+
+												<div class="fw-fade-slider main-carousel fade-effect invisible default tf-sh-354538546225b1892def9de9657fb165">
+													<div id="tf-sh-354538546225b1892def9de9657fb165" class="myCarousel carousel slide" data-slides-interval="7500">
+														<div class="carousel-inner">
+															{% for item in program.gallery.images %}
+															<div class="item lazyload {% if loop.first %}active{%endif%} fw-fade-slider-content-align-left" style="background-image: url(data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==);" data-bgset="{{item.secure_url}} 1920w">
+																<div class="fw-container">
+																	<div class="fw-itable">
+																		<div class="fw-icell">
+																			<div class="fw-fade-slide-text-wrap">
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															{% endfor %}
+														</div>
+														<!--Slider Navigation-->
+														<!-- Carousel indicators -->
+														<ol class="carousel-indicators">
+															{% for item in program.gallery.images %}
+															<li data-target="#tf-sh-354538546225b1892def9de9657fb165" data-slide-to="{{loop.index0}}" class="{% if loop.first %}active{%endif%} fw-fade-slider-content-align-left"></li>
+															{% endfor %}
+														</ol>
+														<div class="fw-first-slider-image" data-image="{{program.featuredImage.secure_url}}"></div>
+													</div>
+												</div>
+											</div>
+											<div class="fw-divider-space  fw-custom-space  clearfix" style="height:50px;"></div>
+											<div class="fw-heading fw-heading-left  fw-animated-element tf-sh-7f03f25854a47c559fa4881dab79fec5" data-animation-type="fadeInUp" data-animation-delay="1100">
+												<h2 class="fw-special-title">{{program.content.section1.title}}</h2>
+											</div>
+											<div class="fw-divider-space  fw-custom-space  clearfix" style="height:20px;"></div>
+											<div class="fw-text-box tf-sh-adc73fb695726ce718add1f1a9e27fde  fw-animated-element" data-animation-type="fadeInUp" data-animation-delay="1300">
+												<div class="fw-text-inner">
+													{{program.content.section1.description|raw}}
+												</div>
+											</div>
+											<div class="fw-divider-space  fw-custom-space  clearfix" style="height:20px;"></div>
+											<div class="fw-heading fw-heading-left  fw-animated-element tf-sh-c306a8e62698a9755bcdb299d66a32e7" data-animation-type="fadeInUp" data-animation-delay="300">
+												<h2 class="fw-special-title">{{program.content.section2.title}}</h2>
+
+
+											</div>
+											<div class="fw-divider-space  fw-custom-space  clearfix" style="height:20px;"></div>
+											<div class="fw-text-box tf-sh-e256bbca203bc0dcb30c61fc8ddbf957  fw-animated-element" data-animation-type="fadeInUp" data-animation-delay="300">
+												<div class="fw-text-inner">
+													{{program.content.section2.description|raw}}
+												</div>
+											</div>
+											<div class="fw-divider-space  fw-custom-space  clearfix" style="height:20px;"></div>
+											<div class="fw-divider tf-sh-4260bfbeef4143275dc943d5af877635  fw-divider-align-left fw-divider-full-width fw-line-solid fw-divider-line  " style="width: auto; padding-top:20px; margin-bottom:0px; border-color:#ebebeb;"></div>
+										</div>
+									</div>
+									<div id="column-ed4219f2ad920f3e507b6bc2e32ad166" class="fw-col-sm-6 fw-col-md-4 tf-sh-ed4219f2ad920f3e507b6bc2e32ad166  fw-animated-element" data-animation-type="fadeInUp" data-animation-delay="900">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+											<div class="fw-text-box tf-sh-ddf3d04b5d962af7ab0d1d7a9a35b19c ">
+												<div class="fw-text-inner">
+													<p>
+														<!--[give_form id="725" show_title="false" show_goal="false" show_content="above" display_style="onpage" float_labels="disabled"]-->
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+			<!-- /content area -->
+		</div>
+		<!-- /.fw-row -->
+	</div>
+	<!-- /.fw-container -->
+</section>
+{% endblock %}
+
+{% block js %}
+<script type='text/javascript' src='/js/fade-slider.js'></script>
+
+{% endblock %}

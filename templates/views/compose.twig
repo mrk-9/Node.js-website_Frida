@@ -1,0 +1,99 @@
+{% extends '../layouts/admin.twig' %}
+{% block content %}
+<div>
+	{% if success %}
+	{{ FlashMessages.renderMessage('Message Sent!','success') }}
+	{% endif %}
+	{% if error is defined %}
+	{{ FlashMessages.renderMessage(error,'error') }}
+	{% endif %}
+</div>
+<form method="post">
+	<input type="hidden" name="action" value="compose" />
+	<div class="field field-type-html field-has-label">
+		<label class="field-label">Recipients</label>
+		<div class="field-ui field-size-full">
+			<div class="">
+				<input type="text" class="form-control" id="recipients" placeholder="Enter Recipients" name="recipients">
+			</div>
+		</div>
+	</div>
+	<div class="field field-type-html field-has-label">
+		<label class="field-label">Message</label>
+		<div class="field-ui field-size-full">
+			<div class="">
+				<textarea class="form-control" rows="3" id="message" name="message"></textarea>
+			</div>
+		</div>
+  </div>
+	<div class="field field-type-html field-has-label">
+		<label class="field-label">&nbsp;</label>
+		<div class="field-ui field-size-full">
+			<button type="submit" class="btn btn-primary btn-block">Send</button>
+		</div>
+	</div>
+</form>
+{% endblock %}
+{% block js %}
+<script>
+
+$(function(){
+
+	tinymce.init({
+		selector: '#message',
+		plugins:[
+			'code','link'
+		],
+		toolbar:'bold italic | alignleft aligncenter alignright | bullist numlist | outdent indent | link | code',
+		height: 400,
+		skin: 'keystone',
+		menubar: false
+	});
+
+	var $s = $('#recipients').selectize({
+    valueField: 'id',
+    labelField: 'name',
+    searchField: 'name',
+    options: [],
+    create: false,
+    render: {
+				item: function(item,escape){
+					return '<div class="Select-item"><span class="Select-item-icon" data-id="'+item.id+'">&#215;</span><span class="Select-item-label" >'+item.name+'</span></div>';
+				},
+        option: function(item, escape) {
+						console.log(item);
+            return '<div>' + item.name + '</div>';
+        }
+    },
+    load: function(query, callback) {
+        if (!query.length) return callback();
+        $.ajax({
+            url: '/keystone/api/users/autocomplete',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+								context: 'relationship',
+                q: query,
+                list: 'users',
+								field: 'name'
+            },
+            error: function() {
+                callback();
+            },
+            success: function(res) {
+								console.log(res);
+                callback(res.items);
+            }
+        });
+    }
+	});
+	
+	$(document).on('click','.Select-item-icon',function(e){
+		e.preventDefault();
+		$s[0].selectize.removeItem($(this).attr('data-id'), true);
+		e.stopPropagation();
+	});
+	
+});
+</script>
+{% endblock %}

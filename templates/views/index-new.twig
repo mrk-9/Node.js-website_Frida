@@ -1,0 +1,419 @@
+{% extends "../layouts/default.twig" %}
+
+{% block css %}
+<link rel='stylesheet' href="/css/index.css" type="text/css" />
+<link rel='stylesheet'  href='/plugins/fullcalendar/fullcalendar.css' type='text/css' media='all' />
+{% endblock %}
+
+{% block content %}
+<div class="fw-page-builder-content">
+
+	<!-- slider section-->
+	<section  id="section-5730bb61e9acc" class=" fw-main-row-custom fw-main-row-top fw-section-no-padding auto" >
+		<div class="fw-container-fluid" >
+			<div class="fw-row">
+				<div id="column-dd0730becb64b50102f5aaa266f80f27" class="fw-col-sm-12 tf-sh-dd0730becb64b50102f5aaa266f80f27  fw-col-no-padding" >
+					<div class="fw-main-row-overlay"></div>
+					<div class="fw-col-inner">
+						<div class="fw-wrap-fade-slider tf-sh-f321d60cc3fd21e521315066524b7b94">
+							<div class="spinner">
+								<div class="wBall" id="wBall_1">
+									<div class="wInnerBall">
+									</div>
+								</div>
+								<div class="wBall" id="wBall_2">
+									<div class="wInnerBall">
+									</div>
+								</div>
+								<div class="wBall" id="wBall_3">
+									<div class="wInnerBall">
+									</div>
+								</div>
+								<div class="wBall" id="wBall_4">
+									<div class="wInnerBall">
+									</div>
+								</div>
+								<div class="wBall" id="wBall_5">
+									<div class="wInnerBall">
+									</div>
+								</div>
+							</div>
+							<div class="fw-fade-slider main-carousel fade-effect invisible default tf-sh-f321d60cc3fd21e521315066524b7b94">
+								<div id="tf-sh-f321d60cc3fd21e521315066524b7b94" class="myCarousel carousel slide" data-slides-interval="7500">
+									<div class="carousel-inner">
+										{% for slide in slides %}
+										<div class="item lazyload {% if loop.first %}active{%endif%} fw-fade-slider-content-align-{{slide.alignment}}"  
+										style="background-image: url(data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==);" 
+										data-bgset="{{slide.image.secure_url}} 1920w" >
+											<div class="fw-main-row-overlay fw_theme_bg_color_3" style="opacity: 0.85;"></div>
+											<div class="fw-container">
+												<div class="fw-itable">
+													<div class="fw-icell">
+														<div class="fw-fade-slide-text-wrap">
+															<div data-animate-in="fadeInDown" data-animate-out="fadeOutUp" class="invisible">
+																<h1 class="fw-fade-slider-title">
+																	<span>{{slide.header}}</span>
+																</h1>
+															</div>
+															<div data-animate-in="fadeInUp" data-animate-out="fadeOutDown" class="invisible">
+																<h2 class="fw-fade-slider-title-after">
+																	<span>{{slide.subheader}}</span>
+																</h2>
+															</div>
+															{% if slide.bvisible %}
+															<div data-animate-in="fadeInUp" data-animate-out="fadeOutDown" class="invisible">
+																<a href="{{slide.button.url}}" class="fw-btn fw-btn-md fw-btn-1" style="">
+																	<span>{{slide.button.text}} <i class="pull-right-icon fa fa-chevron-right" style="font-size:15px;"></i></span>																												</span>
+																</a>
+															</div>
+															{% endif %}
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										{% endfor %}
+										
+									</div>
+									<ol class="carousel-indicators">
+										{% for slide in slides %}
+											<li data-target="#tf-sh-f321d60cc3fd21e521315066524b7b94" data-slide-to="{{loop.index0}}" class="active fw-fade-slider-content-align-{{slide.alignment}} "></li>
+										{% endfor %}
+									</ol>
+									<div class="fw-first-slider-image" data-image="/img/wp/project-details-img-2.jpg"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!--call to action section-->
+	<section  id="section-5730bb61eee01" class=" fw-main-row-custom fw-section-no-padding  fw_theme_bg_color_1 auto">
+		<div class="fw-container">
+			<div class="fw-row">
+				<div id="column-59909b4a7c3af15553b3c562a92c7035" class="fw-col-sm-12 tf-sh-59909b4a7c3af15553b3c562a92c7035" >
+					<div class="fw-main-row-overlay"></div>
+					<div class="fw-col-inner">
+						<div class="fw-divider-space  fw-custom-space  fw-mobile-hide-element clearfix" style="height:27px;" ></div>
+					</div>
+				</div>
+			</div>
+			<div class="fw-row">
+				<div id="column-aa6f903c66df69300829385f4c506527" class="fw-col-sm-4 fw-col-md-3 tf-sh-aa6f903c66df69300829385f4c506527" >
+					<div class="fw-main-row-overlay"></div>
+					<div class="fw-col-inner">
+						<div class="fw-heading fw-heading-left  tf-sh-71ce5f82fad424e85071cdf7e4a2a67b" >
+							<h2 class="fw-special-title">HOW CAN <br> YOU HELP?</h2>
+						</div>	
+					</div>
+				</div>
+				<div id="column-c456b5c879e30f169ad72e6560359d03" class="fw-col-sm-4 fw-col-md-3 tf-sh-c456b5c879e30f169ad72e6560359d03" >
+					<div class="fw-main-row-overlay"></div>
+					<div class="fw-col-inner">
+						<div class="fw-text-box tf-sh-d0faa763b4561404f838d21c2c640562 help-steps" >
+							<div class="fw-text-inner">
+								<p><a href="/donate" style="color:#fff;"><img src="/img/wp/01.png" /> Make a<br />donation</a></p>
+							</div>
+						</div>	
+					</div>
+				</div>
+				<div id="column-91c11a551da59d91ee877125113b6af5" class="fw-col-sm-4 fw-col-md-3 tf-sh-91c11a551da59d91ee877125113b6af5" >
+					<div class="fw-main-row-overlay"></div>
+					<div class="fw-col-inner">
+						<div class="fw-text-box tf-sh-fba9d8ba6590739635b789f645be165d help-steps" >
+							<div class="fw-text-inner">
+								<p><a style="color: #fff;"  href="/volunteer/register"><img src="/img/wp/02.png" /> Become a<br />volunteer</a></p>
+							</div>
+						</div>	
+					</div>
+				</div>
+				<div id="column-5d76f65fa215a8888076cfd4f8bc8e4f" class="fw-tablet-hide-element fw-col-sm-3 tf-sh-5d76f65fa215a8888076cfd4f8bc8e4f" >
+					<div class="fw-main-row-overlay"></div>
+					<div class="fw-col-inner">
+						<div class="fw-text-box tf-sh-9860d65cad1be2458a24c3f8c18de34b help-steps" >
+							<div class="fw-text-inner">
+								<p><a style="color: #fff;" href="#"><img src="/img/wp/03.png" />Sponsor Our Organization</a></p>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+			<div class="fw-row">
+				<div id="column-59909b4a7c3af15553b3c562a92c7035" class="fw-col-sm-12 tf-sh-59909b4a7c3af15553b3c562a92c7035" >
+					<div class="fw-main-row-overlay"></div>
+					<div class="fw-col-inner">
+						<div class="fw-divider-space  fw-custom-space  fw-mobile-hide-element clearfix" style="height:16px;" ></div>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section id="section-5730bb6203739" class=" fw-main-row-custom fw-section-no-padding  auto">
+			<div class="fw-container">
+					<div class="fw-row">
+							<div id="column-506b5b4e4aa6ce91f67ab75550ec84ff" class="fw-col-sm-9 tf-sh-506b5b4e4aa6ce91f67ab75550ec84ff  fw-animated-element fw-col-no-padding" data-animation-type="fadeInUp" data-animation-delay="500">
+									<div class="fw-main-row-overlay"></div>
+									<div class="fw-col-inner">
+											<div class="fw-divider-space  fw-custom-space  fw-mobile-hide-element clearfix" style="height:90px;"></div>
+											<div class="fw-heading fw-heading-left  tf-sh-abbe0e5e52fd971488ab043c5d2a51d1">
+													<h3 class="fw-special-title">FEATURED PROGRAMS</h3>
+											</div>
+											<div class="fw-divider-space  fw-custom-space  fw-mobile-hide-element clearfix" style="height:25px;"></div>
+									</div>
+							</div>
+							<div id="column-e28f13e7ebd687f39c3a57c57f1b4937" class="fw-col-sm-3 tf-sh-e28f13e7ebd687f39c3a57c57f1b4937  fw-animated-element" data-animation-type="fadeInUp" data-animation-delay="700">
+									<div class="fw-main-row-overlay"></div>
+									<div class="fw-col-inner">
+											<div class="fw-divider-space  fw-custom-space  fw-mobile-hide-element clearfix" style="height:90px;"></div>
+											<div class="fw-heading fw-heading-right  tf-sh-dff04a5762e223b1c2087034568a05c8">
+													<h5 class="fw-special-title">
+									<a href="/programs/rise">View all<img src="/img/wp/view-all.png" /></a>
+								</h5>
+											</div>
+											<div class="fw-divider-space  fw-custom-space  fw-mobile-hide-element clearfix" style="height:25px;"></div>
+									</div>
+							</div>
+					</div>
+
+					<div class="fw-row program-block-container">
+							{% for program in featuredPrograms %}
+							<div id="column-b68b54db8e2e9d097952a9a8889e22de" class="fw-col-sm-6 fw-col-md-3 tf-sh-b68b54db8e2e9d097952a9a8889e22de  fw-column-height-custom fw-animated-element fw-col-no-padding" data-animation-type="fadeInUp" data-animation-delay="300" style="height: 326px;">
+									<div class="fw-main-row-overlay"></div>
+									<div class="fw-col-inner">
+											<div class="fw-heading fw-heading-center  tf-sh-7834a6648e1080ce59e76d47b0089b3b">
+													<h4 class="fw-special-title">{{program.title}}</h4>
+											</div>
+											<div class="fw-divider tf-sh-3b74bc71ebf8f23c2fe8a9b080825011  fw-divider-align-center fw-line-solid fw-divider-line   fw_theme_border_only_color_2" style="width:96px; padding-top:0px; margin-bottom:15px; "></div>
+											<div class="fw-text-box tf-sh-0834636544770d1f4cfa471d363bb8ac ">
+													<div class="fw-text-inner">
+															<p style="text-align: center;">{{program.content.brief}}</p>
+													</div>
+											</div>
+											<div class="fw-divider-space  fw-custom-space  clearfix" style="height:27px;"></div>
+											<div class="text-center">
+													<a href="/programs/view/{{program.slug}}" target="_self" class="fw-btn tf-sh-75a6ffc27622cf86bca674707c75eb13  fw-btn-sm   fw-btn-2" style="">
+															<span>
+																More details      		
+															</span>
+													</a>
+											</div>
+									</div>
+							</div>
+							<div id="column-0d9d29e10bfad00421294c0dcefce86c" class="fw-col-sm-6 fw-col-md-3 fw-mobile-hide-element tf-sh-0d9d29e10bfad00421294c0dcefce86c  fw-animated-element fw-col-no-padding" data-animation-type="fadeInUp" data-animation-delay="300">
+									<div class="fw-main-row-overlay"></div>
+									<div class="fw-col-inner">
+											<div class="fw-block-image-parent  fw-block-image-left" style="width: 260px; ">
+													<span class="fw-block-image-child fw-noratio fw-ratio-container">
+													<noscript>
+													<img itemprop="image" src="{{program.featuredImage.secure_url}}"  alt="" data-maxdpr="1.7" width="260" class="lazyload" />
+													</noscript>
+													<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sizes="auto" data-srcset="{{program.featuredImage.secure_url}} 1920w"   alt="" data-maxdpr="1.7" width="260" class="lazyload" /><span class="fw-after-no-ratio" style="padding-bottom: 125.38461538462%"></span> </span>
+											</div>
+									</div>
+							</div>
+							{% endfor %}
+					</div>
+
+					<div class="fw-row">
+							<div id="column-b01fdbf9c55aafd7cbfa5865c3f14302" class="fw-col-sm-12 fw-mobile-hide-element tf-sh-b01fdbf9c55aafd7cbfa5865c3f14302">
+									<div class="fw-main-row-overlay"></div>
+									<div class="fw-col-inner">
+											<div class="fw-divider-space fw-custom-space clearfix" style="height:110px;"></div>
+									</div>
+							</div>
+					</div>
+			</div>
+	</section>
+	
+	<section  id="section-5730bb6211527" class=" fw-main-row-custom fw-section-no-padding  fw_theme_bg_color_1 auto" >
+		<div class="fw-container">
+			<div class="fw-row">
+				<div id="column-59909b4a7c3af15553b3c562a92c7035" class="fw-col-sm-12 tf-sh-59909b4a7c3af15553b3c562a92c7035" >
+					<div class="fw-main-row-overlay"></div>
+					<div class="fw-col-inner">
+						<div class="fw-divider-space  fw-custom-space  clearfix" style="height:70px;" ></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="fw-row">
+				<div id="column-771b5958fbd6d8e0496321970b7d6ef8" class="fw-col-sm-8 fw-col-md-4 tf-sh-771b5958fbd6d8e0496321970b7d6ef8  fw-col-no-padding" >
+					<div class="fw-main-row-overlay"></div>
+						<div class="fw-col-inner">
+						<div class="fw-divider-space  fw-custom-space  fw-mobile-hide-element clearfix" style="height:20px;" ></div>
+						<div class="fw-heading fw-heading-left  tf-sh-09b1b1e62099883be985fd0ece11f678" >
+							<h3 class="fw-special-title">UPCOMING EVENTS</h3>
+						</div>
+					</div>
+				</div>
+				<div id="column-0f93c8a748c60fc505bcf61e42e787e2" class="fw-col-sm-4 fw-col-md-2 tf-sh-0f93c8a748c60fc505bcf61e42e787e2" >
+					<div class="fw-main-row-overlay"></div>
+					<div class="fw-col-inner">
+						<div class="fw-divider-space  fw-custom-space  fw-mobile-hide-element clearfix" style="height:28px;" ></div>
+						<div class="fw-heading fw-heading-right  tf-sh-2574f7ae320509913b155296060eff1a" >
+							<h5 class="fw-special-title">
+								<a href="http://fridabeta.mommamatch.com/wp/?page_id=19">View all <img src="/img/wp/view-all.png"></a>
+							</h5>
+						</div>	
+					</div>
+				</div>
+				<div id="column-a3ddfd2566c7a31de2373f8bfd490fb3" class="fw-tablet-hide-element fw-col-sm-6 fw-mobile-hide-element tf-sh-a3ddfd2566c7a31de2373f8bfd490fb3" >
+					<div class="fw-main-row-overlay"></div>
+					<div class="fw-col-inner">
+					</div>
+				</div>
+			</div>
+
+			<div class="fw-row">
+				<div id="column-cdf97ebe2b72c5a3a58f7dbe953aa520" class="fw-col-sm-12 fw-col-md-6 tf-sh-cdf97ebe2b72c5a3a58f7dbe953aa520" >
+					<div class="fw-main-row-overlay"></div>
+					<div class="fw-col-inner">
+						<div id="calendar" data-template-path="https://geekmindz.com/freeda/wp-content/plugins/unyson/framework/extensions/shortcodes/shortcodes/calendar/views/" data-first-day="1" class=" wrapp_calendar fw-shortcode-calendar-wrapper shortcode-container  tf-sh-ba08190d9d423d173e710fcdb3643446"  >
+							<div class="fw-shortcode-calendar" id="calendar-actual"></div>
+							<div class="page-header hidden-header">
+								<div class="calendar-navigation btn-group">
+									<button id="calendar-prev" class="prev"><i class="fa fa-angle-left"></i></button>
+									<h3 id="calendar-month"><!-- Here will be set the title --></h3>
+									<button class="next" id="calendar-next"><i class="fa fa-angle-right"></i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="column-388e8b56785a65d56ca50c8b78e48f7e" class="fw-col-sm-12 fw-col-md-6 tf-sh-388e8b56785a65d56ca50c8b78e48f7e  fw-animated-element fw-col-no-padding" data-animation-type="fadeInRight" data-animation-delay="300">
+					<div class="fw-main-row-overlay"></div>
+					<div class="fw-col-inner" id="calendar-selected">
+						<div class="fw-heading fw-heading-left  fw-heading-with-subtitle tf-sh-baaf3fb4a3ebbd31459bb822a7e1ae5c" >
+							<div class="fw-special-subtitle">November 14, 2016</div>
+						</div>
+						<div class="fw-heading fw-heading-left  tf-sh-c8a8951174d8111ab3557f13d962e50f" >
+							<h3 class="fw-special-title">Event: Yellow T-shirt race</h3>
+						</div>
+						<div class="fw-divider-space  fw-custom-space  clearfix" style="height:10px;" ></div>
+						<div class="fw-text-box tf-sh-ba6d73df81ec0b835fc3a2f0de990be4 " >
+						<div class="fw-text-inner">
+						<p>Aliquam non neque erat. Aenean adipiscing quis felis vitae porta. Nulla facilisi. Donec tristique eros id sollicitudin sagittis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec in adipiscing eros. Phasellus quis orci vitae erat pharetra luctus sit amet ut odio.</p>
+						<p>Etiam eleifend fermentum libero, id dignissim metus pharetra sed. Vivamus vehicula convallis lorem, in iaculis risus molestie nec. In pellentesque, nisi sit amet hendrerit rutrum, sem quam dictum nibh, at viverra lectus neque non leo. Minim affert iudicabit ne mea, vel accumsan evertitur ut, ius te causae aliquip. Facer homero dolores ut eum, eos no sale munere quaeque. Cu tota habeo percipit.</p>
+						</div>
+						</div>
+						<div class="fw-divider-space  fw-custom-space  clearfix" style="height:35px;" ></div>
+						<div class="text-left">
+							<a href="http://fridabeta.mommamatch.com/wp/?fw-portfolio=healing-through-art" target="_self" class="fw-btn tf-sh-f3868c78f9cf1b54fbdb98546c56b564  fw-btn-sm   fw-btn-2"  style="">
+								<span>Event details</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="fw-row">
+				<div id="column-59909b4a7c3af15553b3c562a92c7035" class="fw-col-sm-12 tf-sh-59909b4a7c3af15553b3c562a92c7035" >
+					<div class="fw-main-row-overlay"></div>
+					<div class="fw-col-inner">
+						<div class="fw-divider-space  fw-custom-space  fw-mobile-hide-element clearfix" style="height:70px;" ></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section  id="section-5730bb621c2c0" class=" fw-main-row-custom fw-section-no-padding  auto  "  style="   "  >
+		<div class="fw-container" >
+		<div class="fw-row">
+		<div id="column-59909b4a7c3af15553b3c562a92c7035" class="fw-col-sm-12 tf-sh-59909b4a7c3af15553b3c562a92c7035" >
+		<div class="fw-main-row-overlay"></div>
+		<div class="fw-col-inner">
+		<div class="fw-divider-space  fw-custom-space  fw-mobile-hide-element clearfix" style="height:138px;" ></div>	</div>
+		</div></div>
+
+	<div class="fw-row">
+		<div id="column-8d69d4cdddfb375c3fefdac470ed6273" class="fw-col-sm-12 fw-col-md-8 tf-sh-8d69d4cdddfb375c3fefdac470ed6273  fw-animated-element" data-animation-type="fadeInLeft" data-animation-delay="300">
+			<div class="fw-main-row-overlay"></div>
+			<div class="fw-col-inner">
+				<div class="fw-shortcode-latest-posts postlist">
+					<article id="post-548" class="post clearfix post-list-type-1 post-548 type-post status-publish format-standard has-post-thumbnail hentry category-all category-ideas tag-cleaning-earth tag-eco-battle tag-volunteerism" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+						<div class="fw-post-image fw-block-image-parent fw-block-image-left   fw-overlay-1">
+							<a href="/blog/post/{{post.slug}}" class="post-thumbnail fw-block-image-child fw-ratio-1 fw-ratio-container">
+								<noscript><img itemprop="image" src="/img/wp/blog-post-feature-1.jpg" alt="blog-post-feature-1" data-maxdpr="1.7" class="attachment-post-thumbnail lazyload" />
+								</noscript><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sizes="auto" data-srcset="{{post.image.secure_url}} 1920w" alt="blog-post-feature-1" data-maxdpr="1.7" class="attachment-post-thumbnail lazyload" />
+								<div class="fw-block-image-overlay">
+									<div class="fw-itable">
+										<div class="fw-icell">
+											<i class="fw-icon-link"></i>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+
+						<header class="entry-header">
+							<div class="wrap-entry-meta">
+								<span class="entry-date">
+										<a rel="bookmark" href="/blog/post/{{post.slug}}">
+											<time itemprop="datePublished" datetime="{{post.publishedDate}}">{{post._.publishedDate.format('MMMM Do, YYYY')}}</time>
+										</a>
+								</span>
+								<span class="separator">&nbsp;|&nbsp;</span>
+								<span itemscope="itemscope" itemtype="http://schema.org/Person" itemprop="author" class="author"> By <a href="#" title="Posts by admin" rel="author">{{ post.author.name.first  ~' '~  post.author.name.last }}</a></span>
+								<span class="separator">&nbsp;|&nbsp;</span>
+								<span class="cat-links"> In {% for cat in post.categories %}<a href="/blog/{{ cat.key }}">{{ cat.name }}</a>{% if loop.last == false %}, {% endif %}{% endfor %}</span>
+							</div>
+							<h2 class="entry-title" itemprop="headline">
+								<a href="/blog/post/{{post.slug}}">{{post.title}}</a>
+							</h2>
+						</header>
+
+						<div class="entry-content clearfix" itemprop="text">
+							<p>{{post.content.brief|striptags}}</p>
+							<footer class="entry-meta clearfix">
+								<a href="/blog/post/{{post.slug}}" class="fw-btn-post-read-more-blog fw-btn fw-btn-md fw-btn-1" style="">
+									<span>Read More</span>
+								</a>
+							</footer>
+						</div>
+					</article>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="column-ec411c7a699b91b904cd051101231881" class="fw-col-sm-12 fw-col-md-4 tf-sh-ec411c7a699b91b904cd051101231881  fw-animated-element" data-animation-type="fadeInRight" data-animation-delay="300">
+			<div class="fw-main-row-overlay"></div>
+			<div class="fw-col-inner">
+				<div class="fw-heading fw-heading-left  fw-heading-with-subtitle tf-sh-9376497fc20e38837595995afb07a6e1">
+					<h3 class="fw-special-title">NEWSLETTER SIGN-UP</h3>
+					<div class="fw-special-subtitle">Lorem ipsum dolor sit amet, ad mea mazim putant dis sentias. Dico primis cum et et verear aliquid.</div>
+				</div>
+				<div class="fw-divider-space  fw-custom-space  clearfix" style="height:5px;"></div>
+				<a href="#" target="_self" class="fw-btn tf-sh-9160fad1160dfde178e4407c681eef02 fw-btn-full fw-btn-lg   fw-btn-1" style="">
+					<span>Subscribe Now</span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+		<div class="fw-row">
+			<div id="column-59909b4a7c3af15553b3c562a92c7035" class="fw-col-sm-12 tf-sh-59909b4a7c3af15553b3c562a92c7035" >
+				<div class="fw-main-row-overlay">
+				</div>
+				<div class="fw-col-inner">
+					<div class="fw-divider-space  fw-custom-space  fw-mobile-hide-element clearfix" style="height:90px;" >
+					</div>	
+				</div>
+			</div>
+		</div>
+
+		</div>
+	</section>
+</div>
+{% endblock %}
+
+{% block js %}
+<script type='text/javascript' src='/js/fade-slider.js'></script>
+<script type='text/javascript' src='/js/moment.min.js'></script>
+<script type='text/javascript' src='/plugins/fullcalendar/fullcalendar.min.js'></script>
+<script type='text/javascript' src='/js/calendar.js'></script>
+{% endblock %}

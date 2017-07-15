@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for keystone/admin/server/middleware/browserify.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">all files</a> / <a href="index.html">keystone/admin/server/middleware/</a> browserify.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">24.44% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>22/90</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25.29% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>22/87</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var babelify = require('babelify');
+var browserify = require('browserify');
+var chalk = require('chalk');
+var crypto = require('crypto');
+var fs = require('fs-extra');
+var moment = require('moment');
+var packages = require('../../client/packages');
+var path = require('path');
+var watchify = require('watchify');
+&nbsp;
+var basedir = path.resolve(__dirname + '/../../client/');
+var devMode = process.env.KEYSTONE_DEV === 'true';
+var devWriteBundles = process.env.KEYSTONE_WRITE_BUNDLES === 'true';
+var devWriteDisc = process.env.KEYSTONE_WRITE_DISC === 'true';
+&nbsp;
+<span class="fstat-no" title="function not covered" >function ts () {</span>
+<span class="cstat-no" title="statement not covered" >	return chalk.gray(moment().format('YYYY-MM-DD HH:MM:SS '));</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function logInit (file) {</span>
+<span class="cstat-no" title="statement not covered" >	console.log(chalk.grey('Watching ') + chalk.underline('keystone/admin/src/' + file) + chalk.grey(' for changes...'));</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function logRebuild (file) {</span>
+<span class="cstat-no" title="statement not covered" >	console.log(ts() + chalk.green('rebuilt ' + chalk.underline(file)));</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function logError (file, err) {</span>
+<span class="cstat-no" title="statement not covered" >	console.log(ts() + chalk.red('error building ' + chalk.underline(file) + ':') + '\n' + err.message);</span>
+}
+&nbsp;
+module.exports = <span class="fstat-no" title="function not covered" >function (file, name) {</span>
+<span class="cstat-no" title="statement not covered" >	var b;</span>
+<span class="cstat-no" title="statement not covered" >	var building = false;</span>
+<span class="cstat-no" title="statement not covered" >	var queue = [];</span>
+<span class="cstat-no" title="statement not covered" >	var ready;</span>
+<span class="cstat-no" title="statement not covered" >	var src;</span>
+<span class="fstat-no" title="function not covered" >	function writeBundle (buff) {</span>
+<span class="cstat-no" title="statement not covered" >		if (devWriteBundles) {</span>
+<span class="cstat-no" title="statement not covered" >			fs.outputFile(path.resolve(path.join(__dirname, '../../bundles/js', file)), buff, 'utf8');</span>
+		}
+<span class="cstat-no" title="statement not covered" >		if (devWriteDisc) {</span>
+<span class="cstat-no" title="statement not covered" >			var discFile = file.replace('.js', '.html');</span>
+<span class="cstat-no" title="statement not covered" >			require('disc').bundle(buff, <span class="fstat-no" title="function not covered" >function (err, html) {</span></span>
+<span class="cstat-no" title="statement not covered" >				if (err) {</span>
+<span class="cstat-no" title="statement not covered" >					logError(discFile, err);</span>
+				} else {
+<span class="cstat-no" title="statement not covered" >					fs.outputFile(path.resolve(path.join(__dirname, '../../bundles/disc', discFile)), html, 'utf8');</span>
+<span class="cstat-no" title="statement not covered" >					console.log(ts() + chalk.green('wrote disc for ' + chalk.underline(file)));</span>
+				}
+			});
+		}
+	}
+<span class="fstat-no" title="function not covered" >	function build () {</span>
+<span class="cstat-no" title="statement not covered" >		if (building) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >		building = true;</span>
+<span class="cstat-no" title="statement not covered" >		var opts = { basedir: basedir };</span>
+<span class="cstat-no" title="statement not covered" >		if (devMode) {</span>
+<span class="cstat-no" title="statement not covered" >			logInit(file);</span>
+<span class="cstat-no" title="statement not covered" >			opts.debug = true;</span>
+<span class="cstat-no" title="statement not covered" >			opts.cache = {};</span>
+<span class="cstat-no" title="statement not covered" >			opts.packageCache = {};</span>
+		}
+<span class="cstat-no" title="statement not covered" >		if (devWriteDisc) {</span>
+<span class="cstat-no" title="statement not covered" >			opts.fullPaths = true;</span>
+		}
+<span class="cstat-no" title="statement not covered" >		if (name) {</span>
+<span class="cstat-no" title="statement not covered" >			b = browserify(opts);</span>
+<span class="cstat-no" title="statement not covered" >			b.require('./' + file, { expose: name });</span>
+		} else {
+<span class="cstat-no" title="statement not covered" >			b = browserify('./' + file, opts);</span>
+		}
+<span class="cstat-no" title="statement not covered" >		b.transform(babelify.configure({</span>
+			plugins: [require('babel-plugin-transform-object-rest-spread'), require('babel-plugin-transform-object-assign')],
+			presets: [require('babel-preset-es2015'), require('babel-preset-react')],
+		}));
+<span class="cstat-no" title="statement not covered" >		b.exclude('FieldTypes');</span>
+<span class="cstat-no" title="statement not covered" >		packages.forEach(<span class="fstat-no" title="function not covered" >function (i) {</span></span>
+<span class="cstat-no" title="statement not covered" >			b.exclude(i);</span>
+		});
+<span class="cstat-no" title="statement not covered" >		if (devMode) {</span>
+<span class="cstat-no" title="statement not covered" >			b = watchify(b, { poll: 500 });</span>
+		}
+<span class="cstat-no" title="statement not covered" >		b.bundle(<span class="fstat-no" title="function not covered" >function (err, buff) {</span></span>
+<span class="cstat-no" title="statement not covered" >			if (err) <span class="cstat-no" title="statement not covered" >return logError(file, err);</span></span>
+<span class="cstat-no" title="statement not covered" >			src = buff;</span>
+<span class="cstat-no" title="statement not covered" >			ready = true;</span>
+<span class="cstat-no" title="statement not covered" >			queue.forEach(<span class="fstat-no" title="function not covered" >function (reqres) {</span></span>
+<span class="cstat-no" title="statement not covered" >				send.apply(null, reqres);</span>
+			});
+<span class="cstat-no" title="statement not covered" >			writeBundle(buff);</span>
+		});
+<span class="cstat-no" title="statement not covered" >		b.on('update', <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >			b.bundle(<span class="fstat-no" title="function not covered" >function (err, buff) {</span></span>
+<span class="cstat-no" title="statement not covered" >				if (err) <span class="cstat-no" title="statement not covered" >return logError(file, err);</span></span>
+				else <span class="cstat-no" title="statement not covered" >logRebuild(file);</span>
+<span class="cstat-no" title="statement not covered" >				src = buff;</span>
+<span class="cstat-no" title="statement not covered" >				writeBundle(buff);</span>
+			});
+		});
+	}
+<span class="fstat-no" title="function not covered" >	function serve (req, res) {</span>
+<span class="cstat-no" title="statement not covered" >		if (!ready) {</span>
+<span class="cstat-no" title="statement not covered" >			build();</span>
+<span class="cstat-no" title="statement not covered" >			queue.push([req, res]);</span>
+<span class="cstat-no" title="statement not covered" >			return;</span>
+		}
+<span class="cstat-no" title="statement not covered" >		send(req, res);</span>
+	}
+<span class="fstat-no" title="function not covered" >	function send (req, res) {</span>
+<span class="cstat-no" title="statement not covered" >		res.setHeader('Content-Type', 'application/javascript');</span>
+<span class="cstat-no" title="statement not covered" >		var etag = crypto.createHash('md5').update(src).digest('hex').slice(0, 6);</span>
+<span class="cstat-no" title="statement not covered" >		if (req.get &amp;&amp; (etag === req.get('If-None-Match'))) {</span>
+<span class="cstat-no" title="statement not covered" >			res.status(304);</span>
+<span class="cstat-no" title="statement not covered" >			res.end();</span>
+		}
+		else {
+<span class="cstat-no" title="statement not covered" >			res.setHeader('ETag', etag);</span>
+<span class="cstat-no" title="statement not covered" >			res.setHeader('Vary', 'Accept-Encoding');</span>
+<span class="cstat-no" title="statement not covered" >			res.send(src);</span>
+		}
+	}
+<span class="cstat-no" title="statement not covered" >	return {</span>
+		serve: serve,
+		build: build,
+	};
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 24 2016 20:05:17 GMT+1100 (AEDT)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+{% extends '../layouts/admin.twig' %}
+{% if conversation %}
+{% block content %}
+<div class="container-fluid">
+	
+	<div id="thread" data-id="{{conversation._id}}" {% if messagethread|length == 20 %}data-can-load-more="true"{%else%}data-can-load-more="false"{%endif%} data-page="1">
+	{% for message in messagethread %}
+	<div class="row" style="position: relative; padding: 25px 0 25px 15px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;" data-id="{{message._id}}" {% if loop.last %}id="last"{% endif %}>
+		<div class="col-xs-4 col-sm-3 col-md-2 text-center" style="padding: 0 !important;">
+			{% if message.user.role == 'Admin' %}
+			<img src="/img/admins.png" style="max-width:70%" />
+			<strong style="display: block;width: 100%;">
+				<span>Admin</span>
+			</strong>
+			{% else %}
+			<img src="{{message.user.image.secure_url}}" style="max-width:70%" /><br/>
+			<strong style="display: block;width: 100%;">
+			{% if message.user.name.last is not empty %}
+			<span>{{ message.user.name.first  ~ ' ' ~ message.user.name.last }}</span>
+			{% else %}
+			<span>{{ message.user.name.first}}</span>
+			{% endif %}
+			</strong>
+			{% endif %}
+		</div>
+		<div class="col-xs-8 col-sm-9 col-md-10">
+			{{ message.content.extended }}
+		</div>
+		<small style="position: absolute; bottom: 8px; right: 12px;">{{message.timestamp}}</small>
+	</div>
+	{% endfor %}
+	</div>
+	<form method="post" id="reply">
+		<input type="hidden" name="action" value="reply" />
+		<div class="field field-type-html field-has-label">
+			<label class="field-label">Reply To Thread</label>
+			<div class="field-ui field-size-full">
+				<div class="">
+					<textarea class="form-control" rows="3" id="message" name="message"></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="field field-type-html field-has-label">
+			<label class="field-label">&nbsp;</label>
+			<div class="field-ui field-size-full">
+				<button type="submit" class="btn btn-primary btn-block">Send</button>
+			</div>
+		</div>
+	</form>
+</div>
+{% endblock %}
+{% block js %}
+<script src="/js/socket.io-1.4.5.js"></script>
+<script>
+var thread = '{{conversation._id}}';
+
+var socket = io('http://frida.hogs.xyz');
+
+socket.on('connect', function(){
+
+	socket.emit('authentication',{u_id: '{{user._id}}'});
+	
+	socket.on('authenticated',function(){
+	
+		console.log('authenticated with socketio');
+		
+		socket.on('thread_update',function(data){
+			$('#thread').append(data.html);
+			socket.emit('thread_seen',data.thread_id);
+		});
+		
+		socket.emit('join','thread_'+thread);	
+	});
+});
+
+
+$(function(){
+
+	function scrollOnAppended(id)
+	{
+		var t1 = setInterval(function(){
+			var selector = $('.row[data-id="'+id+'"]');
+			if(selector.length){
+				clearInterval(t1);
+				$(window).scrollTop(selector.offset().top - 50);
+			}
+		},50);
+	}
+
+	var last = 0;
+	
+	if($('#thread[data-can-load-more="true"]').length){
+	
+		$(window).scroll(function(e){
+			var cur = $(window).scrollTop();
+			if(cur < 100 && cur < last){
+				var thread = $('#thread'),
+					page = ~~thread.attr('data-page');
+					socket.emit('thread_paginate',{
+						thread: thread.attr('data-id'),
+						page: page
+					});
+					socket.once('thread_paginate_response',function(data){
+						thread.attr('data-can-load-more',data.results);
+						if(data.html){
+							var current_top = thread.children().first();
+							thread.prepend(data.html);
+							page++;
+							thread.attr('data-page',page);
+							var x = 0;
+							current_top.prevAll().each(function() {
+								x += $(this).outerHeight();
+							});
+							$(window).scrollTop(x);
+						}
+					});
+			}
+			last = cur;
+		});
+	}
+	
+	$('#reply').submit(function(e){
+		e.preventDefault();
+		var id = $('#thread').attr('data-id');
+		var message = tinymce.get('message').getContent();
+		socket.emit('thread_reply',{
+			id: id,
+			message: message
+		});
+		socket.once('thread_reply_success',function(data){
+			tinymce.get('message').setContent('');
+			var id2 = data.inserted_id;
+			scrollOnAppended(id2);
+		});
+		e.stopPropagation();
+	});
+
+	tinymce.init({
+		selector: '#message',
+		plugins:[
+			'code','link'
+		],
+		toolbar:'bold italic | alignleft aligncenter alignright | bullist numlist | outdent indent | link | code',
+		height: 250,
+		skin: 'keystone',
+		menubar: false
+	});
+	
+	$(window).load(function(){
+		$(window).scrollTop( $('#last').offset().top - 50 );
+	});
+	
+});
+</script>
+{% endblock %}
+{% else %}
+{% block content %}
+<div class="container-fluid">
+	<div class="text-center">
+		<h3>Thread Not Found</h3>
+	</div>
+</div>
+{% endblock %}
+{% endif %}

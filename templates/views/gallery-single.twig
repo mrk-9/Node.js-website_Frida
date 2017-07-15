@@ -1,0 +1,122 @@
+{% extends "../layouts/default.twig" %}
+
+{% block css %}
+<link rel='stylesheet' href="/css/gallery.css" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<script type="text/javascript">console.log('gallery-single');</script>
+{{ test }}
+<div class="fw-page-builder-content">
+		<section id="section-5731f4f15d245" class=" fw-main-row-custom fw-main-row-top fw-section-no-padding auto">
+				<div class="fw-container">
+						<div class="fw-row">
+								<div id="column-b0522c441002fc91a79ded6e9b1b753e" class="fw-col-sm-12 tf-sh-b0522c441002fc91a79ded6e9b1b753e">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-divider-space  fw-custom-space  clearfix" style="height:100px;"></div>
+										</div>
+								</div>
+						</div>
+
+						<div class="fw-row">
+								<div id="column-cd981a19a5cb59eb6da3b5ba2269b163" class="fw-col-sm-8 tf-sh-cd981a19a5cb59eb6da3b5ba2269b163  fw-animated-element" data-animation-type="fadeInLeft" data-animation-delay="300">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-heading fw-heading-left  tf-sh-c81d7edeb2cd77f9ab924d7e69751a67">
+														<h1 class="fw-special-title">{{ gallery.name }}</h1>
+
+
+												</div>
+												<div class="fw-text-box tf-sh-b64347b6b97d76f2928def54d7aab4be ">
+														<div class="fw-text-inner">
+																<p>{{gallery.description|default('<em>No Description Available</em>')|raw}}</p>
+														</div>
+												</div>
+										</div>
+								</div>
+								<div id="column-fea2fc208fb4cfdff7fb6ce0ce063333" class="fw-col-sm-4 tf-sh-fea2fc208fb4cfdff7fb6ce0ce063333  fw-animated-element" data-animation-type="fadeInRight" data-animation-delay="500">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-divider-space  fw-custom-space  clearfix" style="height:10px;"></div>
+												<a href="#" target="_self" class="fw-btn tf-sh-cd9d96a0089052d148ac18e330d8a2c1 fw-btn-full fw-btn-lg   fw-btn-2" style="">
+														<span>
+Join Us		</span>
+												</a>
+										</div>
+								</div>
+						</div>
+
+						<div class="fw-row">
+								<div id="column-b0522c441002fc91a79ded6e9b1b753e" class="fw-col-sm-12 tf-sh-b0522c441002fc91a79ded6e9b1b753e">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-divider-space  fw-custom-space  clearfix" style="height:100px;"></div>
+										</div>
+								</div>
+						</div>
+
+						<div class="fw-row">
+							<div id="column-6c385c832b30a4caf0c6df342047c4d2" class="fw-col-sm-6 fw-col-md-3 tf-sh-6c385c832b30a4caf0c6df342047c4d2  fw-animated-element" data-animation-type="fadeInUp" data-animation-delay="700">
+									<div class="fw-main-row-overlay"></div>
+									<div class="fw-col-inner">
+											<div class="fw-imagebox clearfix fw-imagebox-1 tf-sh-314d4c23a5898e7213e2c82d92004ae0 text-center">
+													<div class="fw-block-image-parent fw-block-image-center fw-imagebox-overlay-yes fw-overlay-1">
+															<a class="fw-imagebox-image fw-block-image-child fw-ratio-1 fw-ratio-container" href="{{ gallery.heroImage.secure_url }}" data-rel="prettyPhoto" title="" rel="prettyPhoto">
+																	<noscript><img itemprop="image" src="{{ gallery.heroImage.secure_url }}" alt="gallery-img-1" data-maxdpr="1.7" width="270" class="lazyload" />
+																	</noscript><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sizes="auto" data-srcset="{{ gallery.heroImage.secure_url }} 1920w" alt="gallery-img-1" data-maxdpr="1.7" width="270" class="lazyload" />
+																	<div class="fw-block-image-overlay">
+																			<div class="fw-itable">
+																					<div class="fw-icell">
+																							<i class="fw-icon-zoom"></i>
+																					</div>
+																			</div>
+																	</div>
+															</a>
+													</div>
+											</div>
+									</div>
+							</div>
+							{% if gallery.images.length %}
+								{% for img in gallery.images %}
+								<div id="column-6c385c832b30a4caf0c6df342047c4d2" class="fw-col-sm-6 fw-col-md-3 tf-sh-6c385c832b30a4caf0c6df342047c4d2  fw-animated-element" data-animation-type="fadeInUp" data-animation-delay="700">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-imagebox clearfix fw-imagebox-1 tf-sh-314d4c23a5898e7213e2c82d92004ae0 text-center">
+														<div class="fw-block-image-parent fw-block-image-center fw-imagebox-overlay-yes fw-overlay-1">
+																<a class="fw-imagebox-image fw-block-image-child fw-ratio-1 fw-ratio-container" href="{{ img.secure_url }}" data-rel="prettyPhoto" title="" rel="prettyPhoto">
+																		<noscript><img itemprop="image" src="{{ img.secure_url }}" alt="gallery-img-1" data-maxdpr="1.7" width="270" class="lazyload" />
+																		</noscript><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sizes="auto" data-srcset="{{ img.secure_url }} 1920w" alt="gallery-img-1" data-maxdpr="1.7" width="270" class="lazyload" />
+																		<div class="fw-block-image-overlay">
+																				<div class="fw-itable">
+																						<div class="fw-icell">
+																								<i class="fw-icon-zoom"></i>
+																						</div>
+																				</div>
+																		</div>
+																</a>
+														</div>
+												</div>
+										</div>
+								</div>
+								{% endfor %}
+							{% endif %}
+						</div>
+
+						<div class="fw-row">
+								<div id="column-b0522c441002fc91a79ded6e9b1b753e" class="fw-col-sm-12 tf-sh-b0522c441002fc91a79ded6e9b1b753e">
+										<div class="fw-main-row-overlay"></div>
+										<div class="fw-col-inner">
+												<div class="fw-divider-space  fw-custom-space  clearfix" style="height:160px;"></div>
+										</div>
+								</div>
+						</div>
+
+				</div>
+		</section>
+</div>
+{% endblock %}
+
+{% block js %}
+<script type='text/javascript' src='/js/gallery.js'></script>
+{% endblock %}

@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for keystone/fields/types/datetime/DatetimeType.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">all files</a> / <a href="index.html">keystone/fields/types/datetime/</a> DatetimeType.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">94.74% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>54/57</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70.21% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>33/47</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96.43% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>54/56</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">51×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var moment = require('moment');
+var DateType = require('../date/DateType');
+var FieldType = require('../Type');
+var util = require('util');
+var utils = require('keystone-utils');
+var TextType = require('../text/TextType');
+&nbsp;
+// ISO_8601 is needed for the automatically created createdAt and updatedAt fields
+var parseFormats = ['YYYY-MM-DD', 'YYYY-MM-DD h:m:s a', 'YYYY-MM-DD h:m a', 'YYYY-MM-DD H:m:s', 'YYYY-MM-DD H:m', moment.ISO_8601];
+/**
+ * DateTime FieldType Constructor
+ * @extends Field
+ * @api public
+ */
+function datetime (list, path, options) {
+	this._nativeType = Date;
+	this._underscoreMethods = ['format', 'moment', 'parse'];
+	this._fixedSize = 'full';
+	this._properties = ['formatString', 'isUTC'];
+	this.typeDescription = 'date and time';
+	this.parseFormatString = options.parseFormat || parseFormats;
+	this.formatString = (options.format === false) ? <span class="branch-0 cbranch-no" title="branch not covered" >false </span>: (options.format || 'YYYY-MM-DD h:m:s a');
+	this.isUTC = options.utc || false;
+	if (this.formatString &amp;&amp; typeof this.formatString !== 'string') {
+		throw new Error('FieldType.DateTime: options.format must be a string.');
+	}
+	datetime.super_.call(this, list, path, options);
+	this.paths = {
+		date: this._path.append('_date'),
+		time: this._path.append('_time'),
+	};
+}
+util.inherits(datetime, FieldType);
+&nbsp;
+/* Inherit generic methods */
+datetime.prototype.format = DateType.prototype.format;
+datetime.prototype.moment = DateType.prototype.moment;
+datetime.prototype.parse = DateType.prototype.parse;
+datetime.prototype.addFilterToQuery = DateType.prototype.addFilterToQuery;
+&nbsp;
+datetime.prototype.validateRequiredInput = TextType.prototype.validateRequiredInput;
+&nbsp;
+/**
+ * Get the value from a data object; may be simple or a pair of fields
+ */
+datetime.prototype.getInputFromData = function (data) {
+	var dateValue = this.getValueFromData(data, '_date');
+	var timeValue = this.getValueFromData(data, '_time');
+	if (dateValue &amp;&amp; timeValue) {
+		return dateValue + ' ' + timeValue;
+	}
+	return this.getValueFromData(data);
+};
+&nbsp;
+/**
+ * Validates the input we get to be a valid date,
+ * undefined, null or an empty string
+ */
+datetime.prototype.validateInput = function (data, callback) {
+	var value = this.getInputFromData(data);
+	// If the value is null, undefined or an empty string
+	// bail early since updateItem sanitizes that just fine
+	var result = true;
+	if (value) {
+		result = this.parse(value, this.parseFormatString, true).isValid();
+	}
+	utils.defer(callback, result);
+};
+&nbsp;
+/**
+ * Checks that a valid date has been provided in a data object
+ * An empty value clears the stored value and is considered valid
+ *
+ * Deprecated
+ */
+datetime.prototype.inputIsValid = function (data, required, item) {
+	<span class="missing-if-branch" title="if path not taken" >I</span>if (!(this.path in data &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >!(this.paths.date in data &amp;&amp; this.paths.time in data))</span> &amp;&amp; item &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >item.get(this.path))</span> <span class="cstat-no" title="statement not covered" >return true;</span>
+	var newValue = moment(this.getInputFromData(data), parseFormats);
+	<span class="missing-if-branch" title="if path not taken" >I</span>if (required &amp;&amp; (<span class="branch-1 cbranch-no" title="branch not covered" >!newValue </span>|| <span class="branch-2 cbranch-no" title="branch not covered" >!newValue.isValid())</span>) {
+<span class="cstat-no" title="statement not covered" >		return false;</span>
+	} else <span class="missing-if-branch" title="if path not taken" >I</span>if (this.getInputFromData(data) &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >newValue </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >!newValue.isValid())</span> {
+<span class="cstat-no" title="statement not covered" >		return false;</span>
+	} else {
+		return true;
+	}
+};
+&nbsp;
+/**
+ * Updates the value for this field in the item from a data object
+ */
+datetime.prototype.updateItem = function (item, data, callback) {
+	// Get the values from the data
+	var value = this.getInputFromData(data);
+	if (value !== undefined) {
+		if (value !== null &amp;&amp; value !== '') {
+			// If the value is not null, empty string or undefined, parse it
+			var newValue = this.parse(value, this.parseFormatString, true);
+			// If it's valid and not the same as the last value, save it
+			<span class="missing-if-branch" title="else path not taken" >E</span>if (!item.get(this.path) || <span class="branch-1 cbranch-no" title="branch not covered" >!newValue.isSame(item.get(this.path)))</span> {
+				item.set(this.path, newValue.toDate());
+			}
+		// If it's null or empty string, clear it out
+		} else {
+			item.set(this.path, null);
+		}
+	}
+	process.nextTick(callback);
+};
+&nbsp;
+/* Export Field Type */
+module.exports = datetime;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 24 2016 20:05:17 GMT+1100 (AEDT)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

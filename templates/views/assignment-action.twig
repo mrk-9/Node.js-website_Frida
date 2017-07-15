@@ -1,0 +1,16 @@
+{% extends '../layouts/admin.twig' %}
+
+{% block content %}
+<div class="col-xs-12 text-center">
+{% if invalidRequest %}
+	<h3>Invalid Request.</h3>
+{% else %}
+{% if accepted %}
+	<h3>Invitation Accepted</h3>
+{% else %}
+	<h3>Invitation Declined</h3>
+{% endif %}
+{% endif %}
+</div>
+
+{% endblock %}
